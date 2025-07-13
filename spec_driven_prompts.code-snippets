@@ -1,0 +1,44 @@
+{
+  "Generate Component from Spec": {
+    "prefix": "gencomp",
+    "body": [
+      "Generate a ${1:React} component for the feature described in `specs/features/${2:feature-name}.md`. Implement ${3:specific functionality}."
+    ],
+    "description": "Prompt to generate a component from a feature spec"
+  },
+  "Refactor Based on Updated Spec": {
+    "prefix": "refspec",
+    "body": [
+      "Refactor `src/${1:file}.js` based on changes in `specs/features/${2:feature-name}.md`. The new requirement is ${3:description}."
+    ],
+    "description": "Prompt to refactor code based on updated spec"
+  },
+  "Generate Tests from Spec": {
+    "prefix": "gentest",
+    "body": [
+      "Generate test cases for `src/${1:file}.js` based on the scenarios described in `specs/tests/${2:test-file}.md`."
+    ],
+    "description": "Prompt to generate tests from test case specs"
+  },
+  "Align UI with UX Flow": {
+    "prefix": "alignux",
+    "body": [
+      "Update the UI in `src/${1:component}.js` to follow the flow in `specs/features/${2:feature-name}.md`, focusing on ${3:UX behavior}."
+    ],
+    "description": "Prompt to align component UI with feature UX flow"
+  },
+  "Explain Code Based on Spec": {
+    "prefix": "explain",
+    "body": [
+      "Explain how the code in `src/${1:file}.js` implements the requirements in `specs/features/${2:feature-name}.md`."
+    ],
+    "description": "Prompt to get explanation of implementation based on spec"
+  },
+  "Generate Deployment Script": {
+    "prefix": "gendeploy",
+    "body": [
+      "Generate a deployment script (e.g., Docker or shell) based on the requirements described in `specs/deployment.md`."
+    ],
+    "description": "Prompt to generate deployment script from infra spec"
+  }
+}
