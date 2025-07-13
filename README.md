@@ -63,3 +63,18 @@ explain → Explain how the code in `src/[file].js` implements the requirements 
 ```
 gendeploy → Generate a deployment script based on `specs/deployment.md`.
 ```
+
+## ⚡ Prompt Snippets for Copilot
+
+The project includes VS Code snippets in `.vscode/spec_driven_prompts.code-snippets` that are automatically available when you open this workspace in VS Code.
+
+**Available Snippets:**
+
+- `gencomp` + Tab → Generate component from spec
+- `refspec` + Tab → Refactor code based on updated spec  
+- `gentest` + Tab → Generate tests from spec
+- `alignux` + Tab → Align UI with UX flow
+- `explain` + Tab → Explain code implementation
+- `gendeploy` + Tab → Generate deployment script
+
+These snippets make it faster and more consistent to prompt GitHub Copilot based on evolving specifications. Simply type the prefix and press Tab in any file to expand the prompt template.
