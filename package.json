@@ -1,0 +1,21 @@
+{
+  "name": "spec-driven-development-starter",
+  "version": "1.0.0",
+  "description": "Spec-Driven Development template with GitHub Copilot integration",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spec-driven",
+    "development",
+    "github-copilot",
+    "template",
+    "vscode"
+  ],
+  "author": "Michael McCullough",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
