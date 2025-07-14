@@ -1,6 +1,7 @@
 # Data Model (Initial Draft)
 
 ## User
+
 - `id`: UUID
 - `email`: string
 - `password_hash`: string
@@ -9,6 +10,7 @@
 - `role`: enum (owner, contributor)
 
 ## Specification
+
 - `id`: UUID
 - `title`: string
 - `description`: text
@@ -16,16 +18,26 @@
 - `created_by`: UUID (FK to User)
 - `created_at`: datetime
 - `updated_at`: datetime
+- `project_id`: UUID (FK to Project)
 
 ## Project
+
 - `id`: UUID
 - `name`: string
 - `description`: text
 - `owner_id`: UUID (FK to User)
 - `created_at`: datetime
-- `spec_ids`: array of UUIDs (FKs to Specification)
+- `visibility`: enum (private, public)
 
 ## Collaboration
+
 - `user_id`: UUID (FK to User)
 - `project_id`: UUID (FK to Project)
 - `permissions`: enum (read, write, admin)
+
+---
+
+## Related Files
+
+- [API Routes](./api-routes.md)
+- [Database Schema](./db-schema.md)

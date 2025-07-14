@@ -1,14 +1,5 @@
 # Product Intent
 
-This project is a simple Task Management web application designed to help users track tasks across categories (e.g., personal, work, urgent). Users can create, edit, and complete tasks.
-
-Design principles:
-- Clean, minimal UI
-- Fast performance
-- Offline-first
-
-# Product Intent
-
 **Spec Driven** is a collaborative specification and test design workspace for modern product teams. It provides a structured environment for capturing product intent, use cases, test cases, and architectural requirements—designed to integrate seamlessly with AI-assisted development tools such as GitHub Copilot.
 
 ## Purpose

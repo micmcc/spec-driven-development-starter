@@ -1,9 +1,11 @@
 # Feature: Collaborative Spec Editing
 
 ## Objective
+
 Enable multiple users to edit the same specification in real time, with role-based permissions and version tracking.
 
 ## Background
+
 Currently, all specs are edited individually. This feature introduces shared access, which supports concurrent workflows among team members and lays the foundation for commenting and version control.
 
 ## Requirements
@@ -38,5 +40,6 @@ Currently, all specs are edited individually. This feature introduces shared acc
   - Draft changes are saved locally and synced when reconnected.
 
 ## Out of Scope (for MVP)
+
 - Inline comments and discussion threads
 - Offline collaborative editing

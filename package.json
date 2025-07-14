@@ -16,6 +16,10 @@
   ],
   "author": "Michael McCullough",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
 }
