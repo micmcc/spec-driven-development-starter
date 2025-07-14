@@ -70,7 +70,6 @@ This ensures your AI-generated code always follows your project's specifications
 
 Define the specification for collaborative spec editing, including roles, permissions, and version control behavior, to guide implementation and testing.
 
-
 ## 💬 Prompt Snippets for Copilot Development
 
 While GenAI may assist in exploring and defining specifications outside of VS Code, this project is designed to pair those specs with GitHub Copilot to generate, refine, and maintain implementation code.

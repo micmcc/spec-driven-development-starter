@@ -60,10 +60,12 @@ When implementing features, maintain this structure and follow the patterns esta
 ## Database Schema Reference
 
 When working with data models, always reference:
+
 - `/specs/product-overview/data-model.md` for entity definitions
 - `/specs/product-overview/db-schema.md` for PostgreSQL schema
 
-### Key Data Model Rules:
+### Key Data Model Rules
+
 - All IDs should be UUIDs, not auto-incrementing integers
 - User table uses `name` field (not `username`)
 - User table uses `password_hash` field (not `password`)
@@ -71,7 +73,8 @@ When working with data models, always reference:
 - Visibility field is enum: ('private', 'public')
 - Use PostgreSQL-specific types (UUID, TIMESTAMP, TEXT)
 
-### Schema Patterns:
+### Schema Patterns
+
 ```sql
 -- User table pattern from db-schema.md
 id UUID PRIMARY KEY
