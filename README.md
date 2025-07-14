@@ -12,59 +12,106 @@ This tool supports collaborative specification design for product teams, enablin
 - `specs/product-overview/`: Foundational product documents (intent, use cases, architecture, UX, data model)
 - `specs/tests/`: Test cases described in natural language.
 - `src/`: Application source code for managing specs, tests, and user flows.
+- `docs/`: Documentation including Copilot quick reference.
+- `.github/instructions/`: GitHub Copilot instructions for the project.
+- `tools/`: Automation scripts for maintaining spec-driven workflow.
 - `infra/`: Deployment and infrastructure scripts.
 
 ## Getting Started
 
 1. Open this folder in VS Code with GitHub Copilot enabled.
 2. Start with `specs/product-intent.md` and related foundational documents in `specs/product-overview/`.
-3. Use Copilot or Copilot Chat to generate or evolve code based on specs.
-4. Update specs and regenerate tests or supporting components accordingly.
+3. Run `npm run update-context` to generate all Copilot context files from your specifications.
+4. Use Copilot or Copilot Chat to generate or evolve code based on specs.
+5. Update specs and run `npm run update-context` to keep Copilot synchronized with changes.
 
 ## 🧠 Spec-Driven Workflow
 
 Start with foundational product intent and use cases in `specs/product-overview/`, then add or evolve feature and test specs in `specs/features/` and `specs/tests/`. Use these to drive AI-assisted code generation and refinement using Copilot.
 
-### Using the Spec Extractor Tool
+### 🛠️ Context Management Tools
 
-This project includes a powerful **Spec Extractor** tool (`tools/spec-extractor.js`) that aggregates all your specifications into a single context file for GitHub Copilot:
+This project includes a comprehensive suite of tools that automatically keep GitHub Copilot synchronized with your specifications:
 
-#### How it Works
+#### Available Tools
 
-1. **Scans** all specification files in `/specs` directory
-2. **Extracts** content from product intent, architecture, features, and test specs
-3. **Generates** `context-for-copilot.js` with all specifications as structured comments
+**1. Spec Extractor (`tools/spec-extractor.js`)**
 
-#### Usage Options
+- Aggregates all specifications into `context-for-copilot.js`
+- Provides raw specification content for direct context injection
 
-**Via VS Code Task:**
+**2. Quick Reference Updater (`tools/update-quick-reference.js`)**
 
-- Open Command Palette (`Cmd+Shift+P`)
-- Run task: "Extract Spec Context"
+- Generates `docs/copilot-quick-reference.md` with data model patterns
+- Provides a developer cheat sheet for common conventions
 
-**Via Terminal:**
+**3. Copilot Instructions Updater (`tools/update-copilot-instructions.js`)**
+
+- Updates `.github/instructions/copilot-instructions.md` with comprehensive project guidance
+- Automatically discovers current specifications and project structure
+
+**4. Update All Context (`tools/update-all-context.js`)**
+
+- Runs all three tools above in one command
+- Ensures complete Copilot context synchronization
+
+#### Quick Usage
+
+**Update all context files at once:**
 
 ```bash
-node tools/spec-extractor.js
+npm run update-context
 ```
 
-**Programmatically:**
+**Individual tools:**
 
-```javascript
-const SpecExtractor = require('./tools/spec-extractor');
-const extractor = new SpecExtractor();
-extractor.writeContextFile();
+```bash
+npm run extract-specs              # Generate context-for-copilot.js
+npm run update-quick-ref           # Update quick reference
+npm run update-copilot-instructions # Update comprehensive instructions
 ```
 
-#### Development Workflow
+**Via VS Code Tasks:**
 
-1. **Update specifications** in `/specs` directory when requirements change
-2. **Run spec extractor** to regenerate context
-3. **Keep `context-for-copilot.js` open** in VS Code while coding
-4. **GitHub Copilot will reference** all your specs when suggesting code
-5. **Implement features** following the specifications and architecture patterns
+- Open Command Palette (`Cmd+Shift+P`)
+- Choose from: "Extract Spec Context", "Update Quick Reference", "Update Copilot Instructions"
 
-This ensures your AI-generated code always follows your project's specifications, architecture decisions, and feature requirements.
+#### Automated Context Workflow
+
+1. **Make specification changes** in `/specs` directory
+2. **Run `npm run update-context`** to update all Copilot context files
+3. **GitHub Copilot automatically uses** updated context for better suggestions
+4. **Implement features** following current specifications and patterns
+
+#### Context Files Generated
+
+- **`context-for-copilot.js`**: Raw specifications for direct context
+- **`docs/copilot-quick-reference.md`**: Quick reference patterns and rules  
+- **`.github/instructions/copilot-instructions.md`**: Comprehensive project instructions
+
+This automated approach ensures GitHub Copilot always has current, comprehensive understanding of your project specifications, data models, API patterns, and architectural decisions.
+
+## 🔄 Development Workflow Best Practices
+
+### Spec-First Development
+
+1. **Define or update specifications** in `/specs/` before coding
+2. **Update context** with `npm run update-context`
+3. **Use Copilot** to generate implementation following specs
+4. **Iterate** on specs and code together
+
+### Key Files to Keep Open
+
+- **`context-for-copilot.js`**: Keep open for maximum Copilot context
+- **`docs/copilot-quick-reference.md`**: Reference for data patterns
+- **Relevant spec files**: The features you're currently implementing
+
+### When to Update Context
+
+- After any changes to `/specs/` directory
+- Before starting new feature development  
+- When onboarding new team members
+- As part of your CI/CD pipeline
 
 ## Sample Prompt
 

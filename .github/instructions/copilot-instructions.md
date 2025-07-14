@@ -19,21 +19,30 @@ This is a collaborative specification and test design workspace. All development
 - Purpose: Core values, target users, and product vision
 - Use for: Understanding overall direction and constraints
 
-### Architecture Guidelines
+### Architecture & Overview
 
-- File: `/specs/product-overview/architecture.md`
-- Technologies: Node.js/Express, PostgreSQL, React/Next.js, JWT auth
-- Use for: Technology stack decisions and infrastructure patterns
+- **API Routes**: `/specs/product-overview/api-routes.md` - API endpoint specifications
+- **Architecture & Technologies**: `/specs/product-overview/architecture.md` - Technology stack and infrastructure patterns
+- **Data Model (Initial Draft)**: `/specs/product-overview/data-model.md` - Entity definitions and relationships
+- **Database Schema (PostgreSQL)**: `/specs/product-overview/db-schema.md` - PostgreSQL database schema
+- **Core Use Cases**: `/specs/product-overview/use-cases.md` - User stories and scenarios
+- **UX and Design Aesthetics**: `/specs/product-overview/ux.md` - User experience guidelines
 
-### Feature Implementation
+### Feature Specifications
 
 - Directory: `/specs/features/`
+- Available features:
+  - **Feature: Collaborative Spec Editing**: `/specs/features/collaborative_editing.md`
+  - **Feature: Login Flow**: `/specs/features/login-flow.md`
+  - **Feature: Project Creation**: `/specs/features/project-creation.md`
 - Pattern: Each feature has objective, requirements, UX flow, edge cases
 - Use for: Implementation guidance and acceptance criteria
 
 ### Test Strategy
 
 - Directory: `/specs/tests/`
+- Available test specs:
+  - **Test Cases: Authentication**: `/specs/tests/auth-test-cases.md`
 - Use for: Test case patterns and validation approaches
 
 ## Code Generation Guidelines
@@ -49,13 +58,48 @@ This is a collaborative specification and test design workspace. All development
 ```text
 src/
 ├── controllers/     # Business logic
+│   ├── authController.js
+│   ├── projectController.js
+│   └── specController.js
 ├── middleware/      # Auth and validation
+│   └── authMiddleware.js
 ├── models/         # Data models and DB interactions
+│   ├── db.js
+│   ├── projectModel.js
+│   └── specModel.js
 ├── routes/         # API endpoints
-└── login.js        # Entry point
+│   ├── auth.js
+│   ├── projects.js
+│   └── specs.js
+└── login.js
+
 ```
 
 When implementing features, maintain this structure and follow the patterns established in existing files.
+
+## API Route Patterns
+
+Current API endpoints:
+
+### Auth Routes
+
+- `POST /login`
+
+### Projects Routes
+
+- `POST /`
+- `GET /`
+- `GET /:id`
+- `PUT /:id`
+- `DELETE /:id`
+
+### Specs Routes
+
+- `POST /projects/:projectId/specs`
+- `GET /projects/:projectId/specs`
+- `GET /specs/:id`
+- `PUT /specs/:id`
+- `DELETE /specs/:id`
 
 ## Database Schema Reference
 
@@ -78,8 +122,12 @@ When working with data models, always reference:
 ```sql
 -- User table pattern from db-schema.md
 id UUID PRIMARY KEY
-email TEXT UNIQUE NOT NULL  
+email TEXT UNIQUE NOT NULL
 password_hash TEXT NOT NULL
 name TEXT NOT NULL
+created_at TIMESTAMP DEFAULT now()
 role TEXT CHECK (role IN ('owner', 'contributor'))
 ```
+
+---
+*Auto-generated from specifications and project structure. Run `node tools/update-copilot-instructions.js` to update.*

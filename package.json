@@ -7,6 +7,8 @@
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-quick-ref": "node tools/update-quick-reference.js",
+    "update-copilot-instructions": "node tools/update-copilot-instructions.js",
+    "update-context": "node tools/update-all-context.js",
     "extract-specs": "node tools/spec-extractor.js"
   },
   "keywords": [
