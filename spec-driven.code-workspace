@@ -1,0 +1,41 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": true,
+      "plaintext": true,
+      "markdown": true
+    },
+    "github.copilot.advanced": {
+      "contextSize": 8192
+    },
+    "files.associations": {
+      "*.md": "markdown"
+    },
+    "markdown.preview.openMarkdownLinks": "inEditor",
+    "markdown.suggest.paths.enabled": true
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Extract Spec Context",
+        "type": "shell",
+        "command": "node",
+        "args": ["tools/spec-extractor.js"],
+        "group": "build",
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        }
+      }
+    ]
+  }
+}
