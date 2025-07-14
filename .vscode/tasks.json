@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Update Quick Reference",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"tools/update-quick-reference.js"
+			],
+			"group": "build",
+			"problemMatcher": []
+		}
+	]
+}

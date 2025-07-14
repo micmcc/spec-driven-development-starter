@@ -25,6 +25,47 @@ This tool supports collaborative specification design for product teams, enablin
 
 Start with foundational product intent and use cases in `specs/product-overview/`, then add or evolve feature and test specs in `specs/features/` and `specs/tests/`. Use these to drive AI-assisted code generation and refinement using Copilot.
 
+### Using the Spec Extractor Tool
+
+This project includes a powerful **Spec Extractor** tool (`tools/spec-extractor.js`) that aggregates all your specifications into a single context file for GitHub Copilot:
+
+#### How it Works
+
+1. **Scans** all specification files in `/specs` directory
+2. **Extracts** content from product intent, architecture, features, and test specs
+3. **Generates** `context-for-copilot.js` with all specifications as structured comments
+
+#### Usage Options
+
+**Via VS Code Task:**
+
+- Open Command Palette (`Cmd+Shift+P`)
+- Run task: "Extract Spec Context"
+
+**Via Terminal:**
+
+```bash
+node tools/spec-extractor.js
+```
+
+**Programmatically:**
+
+```javascript
+const SpecExtractor = require('./tools/spec-extractor');
+const extractor = new SpecExtractor();
+extractor.writeContextFile();
+```
+
+#### Development Workflow
+
+1. **Update specifications** in `/specs` directory when requirements change
+2. **Run spec extractor** to regenerate context
+3. **Keep `context-for-copilot.js` open** in VS Code while coding
+4. **GitHub Copilot will reference** all your specs when suggesting code
+5. **Implement features** following the specifications and architecture patterns
+
+This ensures your AI-generated code always follows your project's specifications, architecture decisions, and feature requirements.
+
 ## Sample Prompt
 
 Define the specification for collaborative spec editing, including roles, permissions, and version control behavior, to guide implementation and testing.
@@ -37,32 +78,38 @@ While GenAI may assist in exploring and defining specifications outside of VS Co
 These prompt snippets can be used in Copilot Chat or inserted as comments to guide Copilot:
 
 ### Generate Component from Spec
-```
+
+```text
 gencomp → Generate a [React] component for the feature described in `specs/features/[feature-name].md`. Implement [specific functionality].
 ```
 
 ### Refactor Based on Updated Spec
-```
+
+```text
 refspec → Refactor `src/[file].js` based on changes in `specs/features/[feature-name].md`. The new requirement is [description].
 ```
 
 ### Generate Tests from Spec
-```
+
+```text
 gentest → Generate test cases for `src/[file].js` based on the scenarios described in `specs/tests/[test-file].md`.
 ```
 
 ### Align UI with UX Flow
-```
+
+```text
 alignux → Update the UI in `src/[component].js` to follow the flow in `specs/features/[feature-name].md`, focusing on [UX behavior].
 ```
 
 ### Explain Code Based on Spec
-```
+
+```text
 explain → Explain how the code in `src/[file].js` implements the requirements in `specs/features/[feature-name].md`.
 ```
 
 ### Generate Deployment Script
-```
+
+```text
 gendeploy → Generate a deployment script based on `specs/deployment.md`.
 ```
 

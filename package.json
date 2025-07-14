@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-quick-ref": "node tools/update-quick-reference.js",
+    "extract-specs": "node tools/spec-extractor.js"
   },
   "keywords": [
     "spec-driven",
