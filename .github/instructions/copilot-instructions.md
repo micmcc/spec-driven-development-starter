@@ -32,9 +32,12 @@ This is a collaborative specification and test design workspace. All development
 
 - Directory: `/specs/features/`
 - Available features:
+  - **Collaboration Management Feature**: `/specs/features/collaboration-management.md`
   - **Feature: Collaborative Spec Editing**: `/specs/features/collaborative_editing.md`
   - **Feature: Login Flow**: `/specs/features/login-flow.md`
-  - **Feature: Project Creation**: `/specs/features/project-creation.md`
+  - **project-creation**: `/specs/features/project-creation.md`
+  - **User Management Feature**: `/specs/features/user-management.md`
+  - **User Registration Feature**: `/specs/features/user-registration.md`
 - Pattern: Each feature has objective, requirements, UX flow, edge cases
 - Use for: Implementation guidance and acceptance criteria
 
@@ -44,6 +47,8 @@ This is a collaborative specification and test design workspace. All development
 - Available test specs:
   - **Test Cases: Authentication**: `/specs/tests/auth-test-cases.md`
 - Use for: Test case patterns and validation approaches
+
+
 
 ## Code Generation Guidelines
 
@@ -82,11 +87,9 @@ When implementing features, maintain this structure and follow the patterns esta
 Current API endpoints:
 
 ### Auth Routes
-
 - `POST /login`
 
 ### Projects Routes
-
 - `POST /`
 - `GET /`
 - `GET /:id`
@@ -94,22 +97,21 @@ Current API endpoints:
 - `DELETE /:id`
 
 ### Specs Routes
-
 - `POST /projects/:projectId/specs`
 - `GET /projects/:projectId/specs`
 - `GET /specs/:id`
 - `PUT /specs/:id`
 - `DELETE /specs/:id`
 
+
+
 ## Database Schema Reference
 
 When working with data models, always reference:
-
 - `/specs/product-overview/data-model.md` for entity definitions
 - `/specs/product-overview/db-schema.md` for PostgreSQL schema
 
-### Key Data Model Rules
-
+### Key Data Model Rules:
 - All IDs should be UUIDs, not auto-incrementing integers
 - User table uses `name` field (not `username`)
 - User table uses `password_hash` field (not `password`)
@@ -117,8 +119,7 @@ When working with data models, always reference:
 - Visibility field is enum: ('private', 'public')
 - Use PostgreSQL-specific types (UUID, TIMESTAMP, TEXT)
 
-### Schema Patterns
-
+### Schema Patterns:
 ```sql
 -- User table pattern from db-schema.md
 id UUID PRIMARY KEY
@@ -126,8 +127,9 @@ email TEXT UNIQUE NOT NULL
 password_hash TEXT NOT NULL
 name TEXT NOT NULL
 created_at TIMESTAMP DEFAULT now()
-role TEXT CHECK (role IN ('owner', 'contributor'))
+role TEXT CHECK (role IN ('viewer', 'contributor', 'admin', 'owner'))
 ```
+
 
 ---
 *Auto-generated from specifications and project structure. Run `node tools/update-copilot-instructions.js` to update.*

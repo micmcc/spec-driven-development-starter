@@ -1,6 +1,9 @@
 # Spec Driven Product Design Tool
 
-This project is a workspace for teams to collaboratively design and evolve software product specifications, use cases, tests, and architectural guidance. It enables AI-assisted development by producing structured inputs (specs) that can be used with tools like GitHub Copilot to generate and evolve implementation code.
+This project is a works**5. Update All Context (`tools/update-all-context.js`)**
+
+- Runs all four tools above in one command
+- Ensures complete Copilot context synchronization including TODO lists for teams to collaboratively design and evolve software product specifications, use cases, tests, and architectural guidance. It enables AI-assisted development by producing structured inputs (specs) that can be used with tools like GitHub Copilot to generate and evolve implementation code.
 
 ## Product Intent
 
@@ -19,11 +22,45 @@ This tool supports collaborative specification design for product teams, enablin
 
 ## Getting Started
 
-1. Open this folder in VS Code with GitHub Copilot enabled.
-2. Start with `specs/product-intent.md` and related foundational documents in `specs/product-overview/`.
-3. Run `npm run update-context` to generate all Copilot context files from your specifications.
-4. Use Copilot or Copilot Chat to generate or evolve code based on specs.
-5. Update specs and run `npm run update-context` to keep Copilot synchronized with changes.
+### Prerequisites
+
+- Node.js 18+ and npm
+- PostgreSQL 12+ (local or remote)
+- VS Code with GitHub Copilot extension
+
+### Setup
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Configure environment:**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your database connection details
+   ```
+
+3. **Set up the database:**
+   ```bash
+   npm run db:setup
+   ```
+   This creates all tables and populates them with realistic test data.
+
+4. **Start development:**
+   - Open this folder in VS Code with GitHub Copilot enabled
+   - Start with `specs/product-intent.md` and related foundational documents
+   - Run `npm run update-context` to generate all Copilot context files
+   - Use Copilot or Copilot Chat to generate code based on specs
+
+### Test Users
+
+After running `npm run db:setup`, you can use these test accounts:
+
+- **Alice** (Owner): `alice@example.com` / `password123`
+- **Bob** (Admin): `bob@example.com` / `password123`  
+- **Carol** (Contributor): `carol@example.com` / `password123`
+- **David** (Viewer): `david@example.com` / `password123`
 
 ## 🧠 Spec-Driven Workflow
 
@@ -50,9 +87,15 @@ This project includes a comprehensive suite of tools that automatically keep Git
 - Updates `.github/instructions/copilot-instructions.md` with comprehensive project guidance
 - Automatically discovers current specifications and project structure
 
-**4. Update All Context (`tools/update-all-context.js`)**
+**4. TODO Updater (`tools/update-todos.js`)**
 
-- Runs all three tools above in one command
+- Automatically scans specifications and codebase for tasks and TODOs
+- Generates organized task lists in `TODO.md` with priority levels
+- Tracks feature implementation status and missing specifications
+
+**5. Update All Context (`tools/update-all-context.js`)**
+
+- Runs all four tools above in one command
 - Ensures complete Copilot context synchronization
 
 #### Quick Usage
@@ -69,12 +112,13 @@ npm run update-context
 npm run extract-specs              # Generate context-for-copilot.js
 npm run update-quick-ref           # Update quick reference
 npm run update-copilot-instructions # Update comprehensive instructions
+npm run update-todos               # Generate TODO list from specifications
 ```
 
 **Via VS Code Tasks:**
 
 - Open Command Palette (`Cmd+Shift+P`)
-- Choose from: "Extract Spec Context", "Update Quick Reference", "Update Copilot Instructions"
+- Choose from: "Extract Spec Context", "Update Quick Reference", "Update Copilot Instructions", "Update TODOs"
 
 #### Automated Context Workflow
 
@@ -88,8 +132,46 @@ npm run update-copilot-instructions # Update comprehensive instructions
 - **`context-for-copilot.js`**: Raw specifications for direct context
 - **`docs/copilot-quick-reference.md`**: Quick reference patterns and rules  
 - **`.github/instructions/copilot-instructions.md`**: Comprehensive project instructions
+- **`TODO.md`**: Automatically generated task lists from specifications and codebase
+- **`TODO.md`**: Organized task lists with priority levels
 
 This automated approach ensures GitHub Copilot always has current, comprehensive understanding of your project specifications, data models, API patterns, and architectural decisions.
+
+## 📋 Automated TODO Management
+
+This project includes intelligent TODO management that automatically scans your specifications and codebase to generate organized task lists:
+
+### TODO Generation Features
+
+- **Specification Analysis**: Scans `/specs/` for missing or incomplete specifications
+- **Feature Status Tracking**: Monitors implementation status of defined features
+- **Technical Debt Detection**: Finds TODO/FIXME comments in source code
+- **Test Coverage Analysis**: Identifies missing test implementations
+- **Priority Classification**: Organizes tasks by High/Medium/Low priority
+
+### Using TODO Management
+
+**Generate updated TODO list:**
+
+```bash
+npm run update-todos
+```
+
+**Include in full context update:**
+
+```bash
+npm run update-context  # Includes TODO generation
+```
+
+### TODO Categories
+
+- **🎯 Current Sprint Goals**: High and medium priority tasks
+- **📋 Feature Implementation Status**: In-progress and planned features
+- **🔧 Technical Debt & Code TODOs**: Source code improvements needed
+- **🧪 Test Implementation Status**: Missing test coverage
+- **📖 Specification Status**: Incomplete or missing specifications
+
+The TODO system automatically discovers your project structure and provides actionable task lists to guide development priorities.
 
 ## 🔄 Development Workflow Best Practices
 

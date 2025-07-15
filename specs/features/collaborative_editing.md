@@ -10,20 +10,21 @@ Currently, all specs are edited individually. This feature introduces shared acc
 
 ## Requirements
 
-- Users with `write` or `admin` permissions can edit the specification content.
+- Users with `contributor`, `admin`, or `owner` permissions can edit the specification content.
 - Edits are auto-saved every 10 seconds or when the user pauses for 2 seconds.
 - All edits should be logged with timestamp and user ID.
 - Previous versions can be viewed and restored.
 - Only one user can edit a given paragraph at a time to avoid conflicts.
-- Read-only users cannot make any changes but can see real-time updates.
+- Users with `viewer` permission cannot make any changes but can see real-time updates.
 
 ## Roles & Permissions
 
 | Role        | Can View | Can Edit | Can Restore Versions |
 |-------------|----------|----------|-----------------------|
-| Read        | ✅        | ❌        | ❌                    |
-| Write       | ✅        | ✅        | ❌                    |
-| Admin       | ✅        | ✅        | ✅                    |
+| viewer      | ✅        | ❌        | ❌                    |
+| contributor | ✅        | ✅        | ❌                    |
+| admin       | ✅        | ✅        | ✅                    |
+| owner       | ✅        | ✅        | ✅                    |
 
 ## UX Flow
 

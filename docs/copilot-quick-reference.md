@@ -3,7 +3,6 @@
 ## Common Data Model Patterns
 
 ### User Model (from specs/product-overview/db-schema.md)
-
 ```javascript
 // Correct User model structure:
 {
@@ -12,12 +11,11 @@
   password_hash: TEXT // NOT 'password',
   name: TEXT         // NOT 'username',
   created_at: TIMESTAMP,
-  role: ENUM // 'owner', 'contributor'
+  role: ENUM // 'viewer', 'contributor', 'admin', 'owner'
 }
 ```
 
 ### Project Model
-
 ```javascript
 {
   id: UUID           // NOT auto-increment,
@@ -30,7 +28,6 @@
 ```
 
 ### Specification Model
-
 ```javascript
 {
   id: UUID           // NOT auto-increment,
@@ -44,8 +41,9 @@
 }
 ```
 
-### API Response Patterns
 
+
+### API Response Patterns
 ```javascript
 // Success response
 { success: true, data: {...} }
@@ -53,6 +51,8 @@
 // Error response  
 { success: false, error: "message" }
 ```
+
+
 
 ## Copilot Prompting Tips
 

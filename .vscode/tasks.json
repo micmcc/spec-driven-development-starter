@@ -10,6 +10,26 @@
 			],
 			"group": "build",
 			"problemMatcher": []
+		},
+		{
+			"label": "Update TODOs",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"tools/update-todos.js"
+			],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Update All Context",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"tools/update-all-context.js"
+			],
+			"group": "build",
+			"problemMatcher": []
 		}
 	]
 }

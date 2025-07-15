@@ -5,32 +5,37 @@
  * Runs all context generation tools: spec extractor, quick reference, and copilot instructions updaters
  */
 
-const QuickReferenceUpdater = require('./update-quick-reference');
-const CopilotInstructionsUpdater = require('./update-copilot-instructions');
-const SpecExtractor = require('./spec-extractor');
+const { execSync } = require('child_process');
+const path = require('path');
 
 async function updateAllCopilotContext() {
   console.log('🚀 Updating all Copilot context files...\n');
   
   try {
+    const toolsDir = __dirname;
+    
     // Extract specification context
-    const specExtractor = new SpecExtractor();
     console.log('📋 Extracting specification context...');
-    specExtractor.writeContextFile();
+    execSync(`node "${path.join(toolsDir, 'spec-extractor.js')}"`, { stdio: 'inherit' });
     
     // Update quick reference
-    const quickRefUpdater = new QuickReferenceUpdater();
-    await quickRefUpdater.updateQuickReference();
+    console.log('\n📚 Updating quick reference...');
+    execSync(`node "${path.join(toolsDir, 'update-quick-reference.js')}"`, { stdio: 'inherit' });
     
     // Update copilot instructions
-    const instructionsUpdater = new CopilotInstructionsUpdater();
-    await instructionsUpdater.updateInstructions();
+    console.log('\n📖 Updating copilot instructions...');
+    execSync(`node "${path.join(toolsDir, 'update-copilot-instructions.js')}"`, { stdio: 'inherit' });
+    
+    // Update TODO list from specifications
+    console.log('\n📝 Updating TODO list from specifications...');
+    execSync(`node "${path.join(toolsDir, 'update-todos.js')}"`, { stdio: 'inherit' });
     
     console.log('\n✨ All Copilot context files updated successfully!');
     console.log('📝 Files updated:');
     console.log('   - context-for-copilot.js');
     console.log('   - docs/copilot-quick-reference.md');
     console.log('   - .github/instructions/copilot-instructions.md');
+    console.log('   - TODO.md');
     
   } catch (error) {
     console.error('❌ Error updating context files:', error.message);
@@ -42,3 +47,5 @@ async function updateAllCopilotContext() {
 if (require.main === module) {
   updateAllCopilotContext();
 }
+
+module.exports = updateAllCopilotContext;

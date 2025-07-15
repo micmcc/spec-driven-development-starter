@@ -8,8 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-quick-ref": "node tools/update-quick-reference.js",
     "update-copilot-instructions": "node tools/update-copilot-instructions.js",
+    "update-todos": "node tools/update-todos.js",
     "update-context": "node tools/update-all-context.js",
-    "extract-specs": "node tools/spec-extractor.js"
+    "extract-specs": "node tools/spec-extractor.js",
+    "db:migrate": "node database/migrate.js",
+    "db:seed": "node database/seed.js",
+    "db:setup": "node database/setup.js",
+    "db:reset": "npm run db:setup"
   },
   "keywords": [
     "spec-driven",
@@ -24,6 +29,7 @@
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.0",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "uuid": "^10.0.0"
   }
 }

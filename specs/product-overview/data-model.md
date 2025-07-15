@@ -7,7 +7,7 @@
 - `password_hash`: string
 - `name`: string
 - `created_at`: datetime
-- `role`: enum (owner, contributor)
+- `role`: TEXT CHECK (role IN ('viewer', 'contributor', 'admin', 'owner'))
 
 ## Specification
 
@@ -33,7 +33,7 @@
 
 - `user_id`: UUID (FK to User)
 - `project_id`: UUID (FK to Project)
-- `permissions`: enum (read, write, admin)
+- `permissions`: TEXT CHECK (permissions IN ('viewer', 'contributor', 'admin', 'owner'))
 
 ---
 
