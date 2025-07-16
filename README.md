@@ -1,9 +1,6 @@
 # Spec Driven Product Design Tool
 
-This project is a works**5. Update All Context (`tools/update-all-context.js`)**
-
-- Runs all four tools above in one command
-- Ensures complete Copilot context synchronization including TODO lists for teams to collaboratively design and evolve software product specifications, use cases, tests, and architectural guidance. It enables AI-assisted development by producing structured inputs (specs) that can be used with tools like GitHub Copilot to generate and evolve implementation code.
+This project is a **specification-driven development tool** designed to help product teams collaboratively define, refine, and implement product requirements, use cases, and tests. It leverages GitHub Copilot to generate code based on detailed specifications, ensuring alignment between product intent and implementation.
 
 ## Product Intent
 
