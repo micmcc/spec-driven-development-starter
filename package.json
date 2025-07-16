@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "update-quick-ref": "node tools/update-quick-reference.js",
     "update-copilot-instructions": "node tools/update-copilot-instructions.js",
     "update-todos": "node tools/update-todos.js",
@@ -35,5 +37,11 @@
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "@types/jest": "^29.5.13",
+    "@types/supertest": "^6.0.2"
   }
 }

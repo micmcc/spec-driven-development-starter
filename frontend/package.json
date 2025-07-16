@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +43,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios)/)"
+    ],
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
+  },
+  "devDependencies": {
+    "identity-obj-proxy": "^3.0.0",
+    "ts-jest": "^29.4.0"
   }
 }
