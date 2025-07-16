@@ -1,18 +1,19 @@
+require('dotenv').config();
 const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
 async function runMigration() {
   const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/spec_driven_dev',
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false } // Required for Supabase
   });
 
   try {
     console.log('🔄 Running database migration...');
     
     const migrationSQL = fs.readFileSync(
-      path.join(__dirname, 'migrations', '001_complete_schema.sql'),
+      path.join(__dirname, 'migrations', '002_app_schema.sql'),
       'utf8'
     );
     

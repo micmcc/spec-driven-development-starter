@@ -30,6 +30,15 @@
 			],
 			"group": "build",
 			"problemMatcher": []
+		},
+		{
+			"label": "Start Server",
+			"type": "shell",
+			"command": "node",
+			"args": ["server.js"],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
 		}
 	]
 }

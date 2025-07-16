@@ -42,17 +42,20 @@ DATABASE_URL=postgresql://user:pass@host:port/dbname
 The complete schema includes 11 tables:
 
 ### Core Tables
+
 - **users** - User accounts with roles and verification status
 - **projects** - Project workspaces with visibility settings
 - **specifications** - Individual specification documents
 - **collaborations** - User permissions on projects
 
 ### Authentication Tables
+
 - **sessions** - JWT refresh token management
 - **password_reset_tokens** - Secure password reset flow
 - **email_change_requests** - Email change verification
 
 ### Collaboration Tables
+
 - **project_invitations** - Email-based project invitations
 - **document_versions** - Version control for specifications
 - **editing_sessions** - Real-time collaboration sessions
@@ -63,18 +66,22 @@ The complete schema includes 11 tables:
 After running `npm run db:setup`, you'll have:
 
 ### Test Users
+
 - **Alice** (Owner): `alice@example.com` / `password123`
 - **Bob** (Admin): `bob@example.com` / `password123`
 - **Carol** (Contributor): `carol@example.com` / `password123`
 - **David** (Viewer): `david@example.com` / `password123`
 
 ### Sample Projects
+
 - **E-commerce Platform** (Private) - Owner: Alice
 - **Mobile Banking App** (Public) - Owner: Bob
 - **Internal CRM System** (Private) - Owner: Alice
 
 ### Specifications
+
 Each project contains realistic specifications with detailed content including:
+
 - User authentication systems
 - Shopping cart functionality
 - Account balance displays
@@ -82,6 +89,7 @@ Each project contains realistic specifications with detailed content including:
 - Contact management
 
 ### Active Sessions
+
 - Alice and Carol actively editing the authentication specification
 - Pending invitations for new collaborators
 
@@ -95,14 +103,17 @@ Each project contains realistic specifications with detailed content including:
 ## Troubleshooting
 
 ### Connection Issues
+
 - Ensure PostgreSQL is running
 - Verify DATABASE_URL is correct
 - Check user permissions
 
 ### Permission Errors
+
 - Ensure database user has CREATE privileges
 - For production, user needs appropriate schema permissions
 
 ### Seed Data Issues
+
 - Run `npm run db:migrate` first if schema doesn't exist
 - Clear existing data by re-running `npm run db:setup`

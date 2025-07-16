@@ -87,7 +87,10 @@ When implementing features, maintain this structure and follow the patterns esta
 Current API endpoints:
 
 ### Auth Routes
+- `POST /register`
 - `POST /login`
+- `POST /refresh`
+- `GET /profile`
 
 ### Projects Routes
 - `POST /`

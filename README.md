@@ -31,20 +31,24 @@ This tool supports collaborative specification design for product teams, enablin
 ### Setup
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Configure environment:**
+
    ```bash
    cp .env.example .env
    # Edit .env with your database connection details
    ```
 
 3. **Set up the database:**
+
    ```bash
    npm run db:setup
    ```
+
    This creates all tables and populates them with realistic test data.
 
 4. **Start development:**
