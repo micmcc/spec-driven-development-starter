@@ -1,0 +1,40 @@
+name: Update Copilot Context
+
+on:
+  push:
+    paths:
+      - 'specs/**'
+      - 'tools/**'
+  pull_request:
+    paths:
+      - 'specs/**'
+      - 'tools/**'
+  workflow_dispatch:
+
+jobs:
+  update-context:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Update Copilot context
+        run: npm run update-context
+      
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update Copilot context files'
+          file_pattern: 'context-for-copilot.js docs/copilot-quick-reference.md .github/instructions/copilot-instructions.md TODO.md'
