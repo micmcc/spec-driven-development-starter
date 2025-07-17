@@ -46,6 +46,8 @@ This is a collaborative specification and test design workspace. All development
 - Directory: `/specs/tests/`
 - Available test specs:
   - **Test Cases: Authentication**: `/specs/tests/auth-test-cases.md`
+  - **Test Cases: Authentication Middleware**: `/specs/tests/middleware-test-cases.md`
+  - **Test Cases: Project Management**: `/specs/tests/project-test-cases.md`
 - Use for: Test case patterns and validation approaches
 
 
