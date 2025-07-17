@@ -1,6 +1,6 @@
 
 // SPECIFICATION CONTEXT FOR GITHUB COPILOT
-// Generated: 2025-07-15T23:36:49.090Z
+// Generated: 2025-07-17T21:29:15.135Z
 
 /*
 PRODUCT INTENT:
@@ -855,9 +855,104 @@ TESTS:
 --- AUTH-TEST-CASES ---
 # Test Cases: Authentication
 
-1. Valid login credentials should allow access
-2. Invalid credentials should show an error
-3. Empty form fields should show validation warnings
+## User Registration
+1. Valid registration with all required fields should create user successfully
+2. Registration with missing required fields should show validation error
+3. Registration with invalid email format should show validation error
+4. Registration with weak password (< 8 characters) should show validation error
+5. Registration with existing email should show user exists error
+6. Database errors during registration should be handled gracefully
 
+## User Login
+1. Valid login credentials should allow access and return JWT tokens
+2. Invalid credentials should show an error with 401 status
+3. Empty form fields should show validation warnings
+4. Non-existent user should show invalid credentials error
+5. Wrong password should show invalid credentials error
+6. Successful login should update last_login timestamp
+
+## Token Management
+1. Valid refresh token should generate new access and refresh tokens
+2. Invalid refresh token should be rejected with 401 status
+3. Expired refresh token should be rejected with appropriate error
+4. Missing refresh token should show validation error
+5. Wrong token type (access token used for refresh) should be rejected
+
+## User Profile
+1. Authenticated user should be able to fetch their profile
+2. Unauthenticated requests should be rejected
+3. Non-existent user should return 404 error
+
+
+
+--- MIDDLEWARE-TEST-CASES ---
+# Test Cases: Authentication Middleware
+
+## Token Authentication
+1. Valid access token should authenticate user successfully
+2. Invalid token should be rejected with 401 status
+3. Expired token should be rejected with appropriate error message
+4. Missing authorization header should be rejected
+5. Malformed authorization header should be rejected
+6. Wrong token type (refresh token) should be rejected
+7. Token with invalid signature should be rejected
+
+## Role-Based Authorization
+1. Users with required role should be granted access
+2. Users without required role should be denied access (403)
+3. Multiple allowed roles should work correctly
+4. Missing user context should return authentication required error
+5. Role checking should work with array of allowed roles
+
+## Optional Authentication
+1. Requests with valid token should set user context
+2. Requests without token should set user to null
+3. Requests with invalid token should set user to null
+4. Process should continue regardless of token validity
+
+## User Verification
+1. Existing users should pass verification
+2. Non-existent users should be rejected
+3. User role should be updated from database
+4. Database errors should be handled gracefully
+
+
+--- PROJECT-TEST-CASES ---
+# Test Cases: Project Management
+
+## Project Creation
+1. Authenticated user should be able to create a new project
+2. Project creation with valid data should return 201 status
+3. Project creation should automatically make creator the owner
+4. Project name is required and cannot be empty
+5. Project name cannot exceed 255 characters
+6. Database errors during project creation should be handled gracefully
+7. Created project should have owner collaboration record
+
+## Project Retrieval
+1. User should be able to list their accessible projects
+2. Project list should include collaboration role for each project
+3. User should be able to get details of projects they have access to
+4. Requests for non-existent projects should return 404
+5. Requests for projects without access should return 404
+6. Database errors during project retrieval should be handled gracefully
+
+## Project Access Control
+1. Only project collaborators should have access to project details
+2. Project owner should have full access to project
+3. Contributors should have appropriate access based on role
+4. Public projects should be accessible according to privacy settings
+5. Private projects should only be accessible to collaborators
+
+## Project Updates (Future)
+1. Only authorized users should be able to update project details
+2. Project name updates should be validated
+3. Status changes should be tracked
+4. Database errors during updates should be handled gracefully
+
+## Project Deletion (Future)
+1. Only project owner should be able to delete project
+2. Project deletion should cascade to related records
+3. Confirmation should be required for project deletion
 
 */
