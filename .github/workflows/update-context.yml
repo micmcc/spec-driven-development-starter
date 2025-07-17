@@ -1,4 +1,6 @@
 name: Update Copilot Context
+permissions:
+  contents: write
 
 on:
   push:
