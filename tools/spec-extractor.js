@@ -18,7 +18,8 @@ class SpecExtractor {
       productIntent: this.readSpec('product-intent.md'),
       architecture: this.readSpec('product-overview/architecture.md'),
       features: this.readFeatures(),
-      tests: this.readTests()
+      tests: this.readTests(),
+      tools: this.readTools()
     };
 
     return this.formatForCopilot(context);
@@ -60,6 +61,20 @@ class SpecExtractor {
     }
   }
 
+  readTools() {
+    const toolsDir = path.join(this.specsDir, 'tools');
+    try {
+      return fs.readdirSync(toolsDir)
+        .filter(file => file.endsWith('.md'))
+        .map(file => ({
+          name: file.replace('.md', ''),
+          content: fs.readFileSync(path.join(toolsDir, file), 'utf8')
+        }));
+    } catch (error) {
+      return [];
+    }
+  }
+
   formatForCopilot(context) {
     return `
 // SPECIFICATION CONTEXT FOR GITHUB COPILOT
@@ -82,6 +97,12 @@ TESTS:
 ${context.tests.map(t => `
 --- ${t.name.toUpperCase()} ---
 ${t.content}
+`).join('\n')}
+
+TOOLS:
+${context.tools.map(tool => `
+--- ${tool.name.toUpperCase()} ---
+${tool.content}
 `).join('\n')}
 */
 `;
