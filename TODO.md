@@ -24,6 +24,7 @@
 - [ ] Complete technical/error-handling.md - Contains placeholder text: "Draft"
 - [ ] Complete technical/real-time-collaboration.md - Contains placeholder text: "Draft"
 - [ ] Complete templates/feature-template.md - Contains placeholder text: "Draft"
+- [ ] Complete tools/spec-extractor.md - Contains placeholder text: "Placeholder"
 
 ## 📋 Feature Implementation Status
 
@@ -136,6 +137,7 @@
 - [ ] **technical/error-handling.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/real-time-collaboration.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **templates/feature-template.md** (medium priority) - Contains placeholder text: "Draft"
+- [ ] **tools/spec-extractor.md** (medium priority) - Contains placeholder text: "Placeholder"
 
 ## 🚀 Infrastructure & DevOps
 
@@ -156,6 +158,6 @@
 
 ---
 
-*Last updated: 2025-07-17*
+*Last updated: 2025-07-18*
 *Run `npm run update-todos` to sync with current specifications*
 *Automatically scans all specification files for completeness*
