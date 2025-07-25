@@ -25,6 +25,7 @@ This is a collaborative specification and test design workspace. All development
 - **Architecture & Technologies Overview**: `/specs/product-overview/architecture.md` - Technology stack and infrastructure patterns
 - **Data Model (Initial Draft)**: `/specs/product-overview/data-model.md` - Entity definitions and relationships
 - **Database Schema (PostgreSQL)**: `/specs/product-overview/db-schema.md` - PostgreSQL database schema
+- **Security Specification**: `/specs/product-overview/security.md`
 - **Core Use Cases**: `/specs/product-overview/use-cases.md` - User stories and scenarios
 - **UX and Design Aesthetics**: `/specs/product-overview/ux.md` - User experience guidelines
 

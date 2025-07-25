@@ -2,7 +2,6 @@
 
 
 ### Missing Specifications
-- [ ] **product-overview/security.md** (high priority) - Security considerations and authentication
 - [ ] **product-overview/deployment.md** (medium priority) - Deployment and infrastructure guidelines
 ### Incomplete Specifications
 - [ ] **features/collaboration-management.md** (medium priority) - Contains placeholder text: "Draft"
@@ -12,6 +11,7 @@
 - [ ] **features/user-registration.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **product-overview/data-model.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **product-overview/db-schema.md** (high priority) - Database schema missing table definitions
+- [ ] **product-overview/security.md** (high priority) - Contains placeholder text: "Draft"
 - [ ] **technical/adrs/ADR-003-database-schema-design.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/adrs/README.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/authentication.md** (medium priority) - Contains placeholder text: "Draft"
