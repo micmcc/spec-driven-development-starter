@@ -8,7 +8,7 @@ const db = require('./src/models/db');
 // Import routes (we'll create these progressively)
 const authRoutes = require('./src/routes/auth');
 const projectRoutes = require('./src/routes/projects');
-// const specRoutes = require('./src/routes/specs');
+const specRoutes = require('./src/routes/specs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -84,7 +84,7 @@ app.get('/', (req, res) => {
 // Routes (we'll uncomment these as we implement them)
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
-// app.use('/api/specs', specRoutes);
+app.use('/api', specRoutes);
 
 // 404 handler
 app.use((req, res) => {
