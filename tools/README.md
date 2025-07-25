@@ -40,9 +40,33 @@ node tools/update-copilot-instructions.js
 npm run update-copilot-instructions
 ```
 
+### update-spaces-mapping.js
+
+**🆕 NEW FEATURE**: Automated Spaces Mapping Agent that automatically detects changes to spec, context, and TODO files within a Space and updates `.copilot/spaces-mapping.yaml` accordingly.
+
+**Usage:**
+
+```bash
+node tools/update-spaces-mapping.js
+# or
+npm run update-spaces-mapping
+```
+
+**What it does:**
+- Scans the file system for specifications, tests, source code, planning files, and infrastructure files
+- Automatically categorizes files into appropriate spaces based on naming patterns and directory structure  
+- Updates the spaces mapping configuration with newly discovered files
+- Maintains metadata like file types and descriptions
+
+**File Detection Rules:**
+- **User Management Space**: Files with "auth", "user", "login", "registration", "profile" in path
+- **Collaborative Spec Editing Space**: Files with "project", "collaboration", "collaborative", "editing", "spec" in path  
+- **Test Coverage & CI/CD Space**: All test files, plus files with "test", "coverage", "jest", "ci", "cd", "devops" in path
+- **Technical Architecture Space**: Files with "architecture", "technical", "adr", "infra", "db.js", "database" in path
+
 ### update-all-context.js
 
-Updates all Copilot context files in one command: specification context, quick reference, and copilot instructions.
+Updates all Copilot context files in one command: specification context, quick reference, copilot instructions, TODOs, and **automated spaces mapping**.
 
 **Usage:**
 
@@ -57,12 +81,17 @@ npm run update-context
 - `context-for-copilot.js` - Specification summaries for context
 - `docs/copilot-quick-reference.md` - Quick reference cheat sheet  
 - `.github/instructions/copilot-instructions.md` - Comprehensive instructions
+- `TODO.md` - Generated TODO list from specifications and codebase
+- `.copilot/spaces-mapping.yaml` - **🆕 Automated spaces mapping updates**
 
 **When to run:**
 
 - After updating `/specs/product-overview/db-schema.md`
 - After modifying data models or API patterns
 - When adding new enum values or field constraints
+- **🆕 When adding new specifications, tests, or source files**
+- **🆕 When creating new planning documents or TODOs**
+- **🆕 When making architectural changes affecting multiple spaces**
 - As part of your development workflow when specs change
 
 ### VS Code Tasks
