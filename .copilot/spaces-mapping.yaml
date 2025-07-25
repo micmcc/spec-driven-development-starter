@@ -289,6 +289,100 @@ spaces:
     # Dependencies on other spaces
     dependencies: []  # This space supports other spaces, no dependencies
 
+  # ---------------------------------------------------------------------------
+  # TECHNICAL ARCHITECTURE SPACE
+  # ---------------------------------------------------------------------------
+  technical_architecture:
+    name: "Technical Architecture"
+    description: "System architecture, infrastructure, technical design, and architectural decision records"
+    priority: "high"
+    status: "active"
+    
+    # Core specification files for this space
+    specification_files:
+      - path: "specs/product-overview/architecture.md"
+        type: "architecture_spec"
+        description: "Main system architecture and technology stack documentation"
+      - path: "specs/technical/authentication.md"
+        type: "technical_spec"
+        description: "Authentication architecture and implementation details"
+      - path: "specs/technical/error-handling.md"
+        type: "technical_spec"
+        description: "Error handling strategies and architectural patterns"
+      - path: "specs/technical/real-time-collaboration.md"
+        type: "technical_spec"
+        description: "Real-time collaboration technical architecture"
+    
+    # Test specifications and test files
+    test_files:
+      - path: "tests/setup.js"
+        type: "test_config"
+        description: "Test environment setup and architectural configuration"
+      - path: "jest.config.js"
+        type: "test_config"
+        description: "Jest testing framework architectural configuration"
+    
+    # Planning and design documents
+    planning_files:
+      - path: "planning/TODO.devops.md"
+        type: "planning"
+        description: "DevOps and infrastructure improvement planning"
+      - path: "planning/TODO.techdebt.md"
+        type: "planning"
+        description: "Technical debt and architectural improvements"
+    
+    # Reference and context files
+    reference_files:
+      - path: "README.md"
+        type: "documentation"
+        description: "Main repository documentation with architecture overview"
+      - path: ".env.example"
+        type: "config"
+        description: "Environment configuration template"
+      - path: "spec-driven.code-workspace"
+        type: "config"
+        description: "Development environment workspace configuration"
+    
+    # Infrastructure and source code files
+    source_files:
+      - path: "infra/"
+        type: "infrastructure"
+        description: "Infrastructure configuration and deployment files"
+      - path: "infra/docker-compose.yml"
+        type: "infrastructure"
+        description: "Docker containerization and service orchestration"
+      - path: "src/models/db.js"
+        type: "architecture"
+        description: "Database connection and core data layer architecture"
+      - path: "src/middleware/"
+        type: "architecture"
+        description: "Middleware layer and cross-cutting concerns"
+      - path: "database/"
+        type: "infrastructure"
+        description: "Database setup, migrations, and schema management"
+      - path: "tools/"
+        type: "tools_directory"
+        description: "Development tools and automation scripts"
+    
+    # Related GitHub issues and PRs
+    issues_prs:
+      examples:
+        - type: "issue"
+          number: "TBD"
+          title: "Implement microservices architecture patterns"
+        - type: "pr"
+          number: "TBD"
+          title: "Add architectural decision records (ADRs)"
+        - type: "issue"
+          number: "TBD"
+          title: "Optimize database connection pooling"
+        - type: "pr"
+          number: "TBD"
+          title: "Implement containerized development environment"
+    
+    # Dependencies on other spaces
+    dependencies: []  # This space supports other spaces, no dependencies
+
 # =============================================================================
 # CROSS-CUTTING CONCERNS
 # =============================================================================
