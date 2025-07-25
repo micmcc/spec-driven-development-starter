@@ -22,7 +22,7 @@ This is a collaborative specification and test design workspace. All development
 ### Architecture & Overview
 
 - **API Routes**: `/specs/product-overview/api-routes.md` - API endpoint specifications
-- **Architecture & Technologies**: `/specs/product-overview/architecture.md` - Technology stack and infrastructure patterns
+- **Architecture & Technologies Overview**: `/specs/product-overview/architecture.md` - Technology stack and infrastructure patterns
 - **Data Model (Initial Draft)**: `/specs/product-overview/data-model.md` - Entity definitions and relationships
 - **Database Schema (PostgreSQL)**: `/specs/product-overview/db-schema.md` - PostgreSQL database schema
 - **Core Use Cases**: `/specs/product-overview/use-cases.md` - User stories and scenarios
