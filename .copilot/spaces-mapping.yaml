@@ -366,6 +366,10 @@ spaces:
     
     # Related GitHub issues and PRs
     issues_prs:
+      current:
+        - type: "issue"
+          number: "18"
+          title: "Update Documentation and Usage Guide for Architecture Space"
       examples:
         - type: "issue"
           number: "TBD"
@@ -421,11 +425,15 @@ maintenance:
     - "When adding new source code modules"
     - "When creating or updating planning documents"
     - "When opening related GitHub issues or PRs"
+    - "When adding new technical specifications to specs/technical/"
+    - "When updating infrastructure or deployment configurations"
+    - "When making architectural changes that affect multiple components"
   
   review_schedule:
     - "Weekly during active development"
     - "Monthly during maintenance phases"
     - "Before major releases"
+    - "When architectural decisions are made"
   
   responsibilities:
     - role: "Feature Developers"
@@ -436,6 +444,8 @@ maintenance:
       tasks: ["Update CI/CD related mappings", "Infrastructure file tracking"]
     - role: "Tech Leads"
       tasks: ["Review and approve mapping changes", "Ensure consistency"]
+    - role: "Architects"
+      tasks: ["Maintain technical_architecture space", "Update architectural specifications", "Ensure cross-space architectural consistency"]
 
 # =============================================================================
 # USAGE EXAMPLES
@@ -452,3 +462,15 @@ usage_examples:
   
   - scenario: "Understanding cross-space dependencies"
     action: "Check dependencies section in each space definition"
+
+  - scenario: "Working on system architecture or technical design"
+    action: "Reference technical_architecture space for all related specifications, infrastructure files, and configuration"
+
+  - scenario: "Adding new technical specifications"
+    action: "Add new files to specs/technical/ and update technical_architecture space mapping"
+
+  - scenario: "Updating infrastructure or deployment configuration"
+    action: "Modify files in infra/ directory and reference them in technical_architecture space"
+
+  - scenario: "Documenting architectural decisions"
+    action: "Update specs/product-overview/architecture.md and related technical specifications in the architecture space"
