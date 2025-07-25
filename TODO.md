@@ -19,8 +19,8 @@ This project uses a centralized planning system with area-specific TODO files to
 
 ### High Priority Items
 - [ ] Complete project-creation implementation ([Features](planning/TODO.feature.md))
-- [ ] Create missing security specification ([Specs](planning/TODO.specs.md))
 - [ ] Complete db-schema specification ([Specs](planning/TODO.specs.md))
+- [ ] Complete security specification ([Specs](planning/TODO.specs.md))
 
 ### Medium Priority Items
 - [ ] Enhance API error handling ([Tech Debt](planning/TODO.techdebt.md))
