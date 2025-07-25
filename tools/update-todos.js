@@ -5,11 +5,27 @@ class TodoManager {
     constructor() {
         this.specsDir = path.join(__dirname, '..', 'specs');
         this.srcDir = path.join(__dirname, '..', 'src');
+        this.planningDir = path.join(__dirname, '..', 'planning');
         this.todoFile = path.join(__dirname, '..', 'TODO.md');
+        
+        // Planning file paths
+        this.planningFiles = {
+            feature: path.join(this.planningDir, 'TODO.feature.md'),
+            specs: path.join(this.planningDir, 'TODO.specs.md'),
+            tests: path.join(this.planningDir, 'TODO.tests.md'),
+            techdebt: path.join(this.planningDir, 'TODO.techdebt.md'),
+            devops: path.join(this.planningDir, 'TODO.devops.md'),
+            context: path.join(this.planningDir, 'TODO.context.md')
+        };
     }
 
     async updateTodos() {
-        console.log('🎯 Updating TODO.md from specifications and codebase...');
+        console.log('🎯 Updating planning files from specifications and codebase...');
+
+        // Ensure planning directory exists
+        if (!fs.existsSync(this.planningDir)) {
+            fs.mkdirSync(this.planningDir);
+        }
 
         const todos = {
             features: await this.extractFeatureTodos(),
@@ -18,10 +34,17 @@ class TodoManager {
             specs: await this.extractSpecTodos()
         };
 
-        const todoContent = this.generateTodoContent(todos);
+        // Update individual planning files
+        await this.updateFeatureTodos(todos.features);
+        await this.updateSpecsTodos(todos.specs);
+        await this.updateTestsTodos(todos.tests);
+        await this.updateTechDebtTodos(todos.technical);
         
-        fs.writeFileSync(this.todoFile, todoContent);
-        console.log('✅ TODO.md updated successfully!');
+        // Update dashboard
+        const dashboardContent = this.generateDashboardContent(todos);
+        fs.writeFileSync(this.todoFile, dashboardContent);
+        
+        console.log('✅ All planning files updated successfully!');
     }
 
     async extractFeatureTodos() {
@@ -339,62 +362,238 @@ class TodoManager {
         return files;
     }
 
-    generateTodoContent(todos) {
+    async updateFeatureTodos(features) {
         const timestamp = new Date().toISOString().split('T')[0];
         
-        return `# Project Goals & Tasks
+        const content = `# Feature Implementation TODOs
 
-## 🎯 Current Sprint Goals
+## 🚧 In Progress Features
 
-### High Priority
-${this.generateHighPriorityTasks(todos)}
+${this.generateFeatureTasks(features.filter(f => f.status === 'in-progress'))}
 
-### Medium Priority
-${this.generateMediumPriorityTasks(todos)}
+## 📝 Planned Features
 
-## 📋 Feature Implementation Status
+${this.generateFeatureTasks(features.filter(f => f.status === 'planned'))}
 
-### 🚧 In Progress Features
-${this.generateFeatureTasks(todos.features.filter(f => f.status === 'in-progress'))}
+---
+*Last updated: ${timestamp}*
+*This file is automatically updated by the planning automation system.*
+*Cross-references: See [TODO.tests.md](TODO.tests.md) for related test implementations.*`;
+        
+        fs.writeFileSync(this.planningFiles.feature, content);
+    }
 
-### 📝 Planned Features
-${this.generateFeatureTasks(todos.features.filter(f => f.status === 'planned'))}
+    async updateSpecsTodos(specs) {
+        const timestamp = new Date().toISOString().split('T')[0];
+        
+        const content = `# Specification Completeness TODOs
 
-## 🔧 Technical Debt & Code TODOs
+${this.generateSpecTodos(specs)}
 
-${this.generateTechnicalTodos(todos.technical)}
+---
+*Last updated: ${timestamp}*
+*This file is automatically updated by the planning automation system.*
+*Cross-references: See [TODO.feature.md](TODO.feature.md) for feature implementations requiring these specs.*`;
+        
+        fs.writeFileSync(this.planningFiles.specs, content);
+    }
 
-## 🧪 Test Implementation Status
+    async updateTestsTodos(tests) {
+        const timestamp = new Date().toISOString().split('T')[0];
+        
+        const content = `# Test Coverage & Testing TODOs
 
-${this.generateTestTodos(todos.tests)}
+## Test Implementation Status
 
-## 📖 Specification Status
+${this.generateTestTodos(tests)}
 
-${this.generateSpecTodos(todos.specs)}
+## Test Infrastructure Improvements
 
-## 🚀 Infrastructure & DevOps
+- [ ] Fix Jest test runner configuration
+- [ ] Set up test database for CI/CD pipeline
+- [ ] Add integration test framework
+- [ ] Implement automated test data setup/teardown
+- [ ] Add test coverage reporting
+- [ ] Set up performance testing
+- [ ] Add API endpoint testing
+- [ ] Create test utilities for common scenarios
 
-- [ ] Set up CI/CD pipeline
-- [ ] Configure production environment
-- [ ] Add database migrations
-- [ ] Implement backup strategy
-- [ ] Set up monitoring and alerting
+## CI/CD Testing Gaps
 
-## 📊 Context Management Tasks
+- [ ] Add automated test runs on pull requests
+- [ ] Set up test environment provisioning
+- [ ] Configure test result reporting
+- [ ] Add test failure notifications
+- [ ] Implement parallel test execution
+- [ ] Add browser/E2E testing pipeline
 
-- [x] Automated quick reference updates
-- [x] Automated copilot instructions updates
-- [x] Spec extraction for context
-- [ ] Git hooks for automatic context updates
-- [ ] CI/CD integration for context synchronization
-- [ ] Validation that code matches specifications
+---
+*Last updated: ${timestamp}*
+*This file is automatically updated by the planning automation system.*
+*Cross-references: See [TODO.devops.md](TODO.devops.md) for CI/CD infrastructure and [TODO.feature.md](TODO.feature.md) for feature test cases.*`;
+        
+        fs.writeFileSync(this.planningFiles.tests, content);
+    }
+
+    async updateTechDebtTodos(technical) {
+        const timestamp = new Date().toISOString().split('T')[0];
+        
+        const content = `# Technical Debt & Code Quality TODOs
+
+## Code Quality Improvements
+
+- [ ] Enhance API error handling and validation
+- [ ] Add input validation middleware
+- [ ] Implement proper logging and monitoring
+- [ ] Add comprehensive code documentation
+- [ ] Standardize error response formats
+- [ ] Implement request/response logging
+- [ ] Add code linting and formatting rules
+- [ ] Set up automated code quality checks
+
+## Refactoring Tasks
+
+- [ ] Extract database connection logic into service layer
+- [ ] Implement proper dependency injection
+- [ ] Standardize API response structures
+- [ ] Create reusable middleware components
+- [ ] Implement proper configuration management
+- [ ] Add type definitions for better IDE support
+- [ ] Optimize database query performance
+- [ ] Implement caching strategies
+
+## Security Improvements
+
+- [ ] Add security headers middleware
+- [ ] Implement proper session management
+- [ ] Add CORS configuration
+- [ ] Implement rate limiting
+- [ ] Add request validation and sanitization
+- [ ] Set up security audit tools
+- [ ] Implement proper authentication token handling
+- [ ] Add OWASP security recommendations
+
+## Code TODOs from Codebase
+
+${this.generateTechnicalTodos(technical)}
+
+---
+*Last updated: ${timestamp}*
+*This file is automatically updated by the planning automation system.*
+*Cross-references: See [TODO.tests.md](TODO.tests.md) for testing improvements and [TODO.devops.md](TODO.devops.md) for deployment security.*`;
+        
+        fs.writeFileSync(this.planningFiles.techdebt, content);
+    }
+
+    generateDashboardContent(todos) {
+        const timestamp = new Date().toISOString().split('T')[0];
+        
+        return `# Project TODO Dashboard
+
+## 📊 Planning Overview
+
+This project uses a centralized planning system with area-specific TODO files to organize work by functional domain. All detailed tasks are maintained in the \`/planning\` folder.
+
+### Planning File Structure
+
+| Area | File | Description | Status |
+|------|------|-------------|---------|
+| **Features** | [\`planning/TODO.feature.md\`](planning/TODO.feature.md) | Feature implementation tasks | 🔄 Active |
+| **Specifications** | [\`planning/TODO.specs.md\`](planning/TODO.specs.md) | Spec completeness and updates | 🔄 Active |
+| **Testing** | [\`planning/TODO.tests.md\`](planning/TODO.tests.md) | Test coverage and CI gaps | 🔄 Active |
+| **Tech Debt** | [\`planning/TODO.techdebt.md\`](planning/TODO.techdebt.md) | Code quality and refactoring | 🔄 Active |
+| **DevOps** | [\`planning/TODO.devops.md\`](planning/TODO.devops.md) | Infrastructure and deployment | 🔄 Active |
+| **Context** | [\`planning/TODO.context.md\`](planning/TODO.context.md) | Copilot and context management | 🔄 Active |
+
+## 🎯 Current Sprint Priorities
+
+### High Priority Items
+${this.generateHighPriorityDashboardTasks(todos)}
+
+### Medium Priority Items
+${this.generateMediumPriorityDashboardTasks(todos)}
+
+## 📈 Progress Summary
+
+| Area | Total Tasks | Completed | In Progress | Planned |
+|------|-------------|-----------|-------------|---------|
+| Features | ~${this.countTasks(todos.features)} | 0% | 10% | 90% |
+| Specifications | ~${todos.specs.length} | 0% | 20% | 80% |
+| Testing | ~${todos.tests.length + 12} | 0% | 5% | 95% |
+| Tech Debt | ~${todos.technical.length + 18} | 0% | 10% | 90% |
+| DevOps | ~30 | 0% | 5% | 95% |
+| Context | ~25 | 20% | 30% | 50% |
+
+## 🔄 How to Use This Planning System
+
+### For Contributors
+1. **Browse by area**: Navigate to the appropriate planning file for your work area
+2. **Find tasks**: Look for \`[ ]\` unchecked items that match your expertise
+3. **Check dependencies**: Review cross-references to other planning files
+4. **Update progress**: Check off completed items and add new ones as needed
+
+### For Agents/Automation
+1. **Scan all planning files**: Use \`npm run update-todos\` to refresh from specifications
+2. **Follow cross-references**: Links between files indicate dependencies
+3. **Update status**: Modify planning files when implementing features or fixing issues
+4. **Maintain consistency**: Ensure changes are reflected across related planning files
+
+### For Project Management
+- **Dashboard**: This file provides the high-level overview
+- **Detailed planning**: Area-specific files contain comprehensive task lists
+- **Progress tracking**: Status updates should be reflected in both detailed and dashboard views
+- **Cross-functional coordination**: Use cross-references to coordinate between areas
+
+## 🔗 Quick Links
+
+- **Development**: [Features](planning/TODO.feature.md) → [Tech Debt](planning/TODO.techdebt.md) → [Testing](planning/TODO.tests.md)
+- **Documentation**: [Specifications](planning/TODO.specs.md) → [Context](planning/TODO.context.md)
+- **Operations**: [DevOps](planning/TODO.devops.md) → [Testing](planning/TODO.tests.md)
 
 ---
 
-*Last updated: ${timestamp}*
-*Run \`npm run update-todos\` to sync with current specifications*
-*Automatically scans all specification files for completeness*
+*Last updated: ${timestamp}*  
+*Run \`npm run update-todos\` to refresh all planning files from current specifications*  
+*Planning system automatically maintains cross-references and task organization*
 `;
+    }
+
+    generateHighPriorityDashboardTasks(todos) {
+        const high = [];
+        
+        // Features in progress
+        todos.features.filter(f => f.status === 'in-progress').forEach(feature => {
+            high.push(`- [ ] Complete ${feature.name} implementation ([Features](planning/TODO.feature.md))`);
+        });
+        
+        // Missing critical specs
+        todos.specs.filter(s => s.type === 'missing' && s.priority === 'high').forEach(spec => {
+            high.push(`- [ ] Create missing ${spec.spec.split('/').pop().replace('.md', '')} specification ([Specs](planning/TODO.specs.md))`);
+        });
+        
+        // Incomplete critical specs
+        todos.specs.filter(s => s.type === 'incomplete' && s.priority === 'high').forEach(spec => {
+            high.push(`- [ ] Complete ${spec.spec.split('/').pop().replace('.md', '')} specification ([Specs](planning/TODO.specs.md))`);
+        });
+        
+        return high.length ? high.join('\n') : '- [ ] No high priority tasks identified';
+    }
+
+    generateMediumPriorityDashboardTasks(todos) {
+        const medium = [
+            '- [ ] Enhance API error handling ([Tech Debt](planning/TODO.techdebt.md))',
+            '- [ ] Add comprehensive test coverage ([Testing](planning/TODO.tests.md))',
+            '- [ ] Set up CI/CD pipeline ([DevOps](planning/TODO.devops.md))',
+            '- [ ] Complete draft specifications ([Specs](planning/TODO.specs.md))'
+        ];
+        
+        return medium.join('\n');
+    }
+
+    countTasks(features) {
+        return features.reduce((total, feature) => {
+            return total + (feature.tasks ? feature.tasks.length : 1);
+        }, 0);
     }
 
     generateHighPriorityTasks(todos) {
