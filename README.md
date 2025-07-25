@@ -189,6 +189,48 @@ npm run update-context  # Includes TODO generation
 
 The TODO system automatically discovers your project structure and provides actionable task lists to guide development priorities.
 
+## 🏗️ Technical Architecture Space
+
+This project includes a **Technical Architecture Space** - a comprehensive mapping system that organizes all architecture-related files, specifications, and resources. This space is defined in `.copilot/spaces-mapping.yaml` and helps developers quickly find relevant files for architectural work.
+
+### Architecture Space Contents
+
+The Technical Architecture Space includes:
+
+- **Core Specifications**: 
+  - `specs/product-overview/architecture.md` - Main system architecture documentation
+  - `specs/technical/` - Technical implementation specifications
+- **Infrastructure Files**: 
+  - `infra/` - Infrastructure configuration and deployment
+  - `database/` - Database setup and schema management
+- **Configuration**: 
+  - Environment setup, workspace configuration, and deployment settings
+
+### Using the Architecture Space
+
+**Finding Architecture Files:**
+```bash
+# View the complete architecture space mapping
+cat .copilot/spaces-mapping.yaml | grep -A 50 "technical_architecture:"
+```
+
+**Common Architecture Tasks:**
+- **System Design**: Start with `specs/product-overview/architecture.md`
+- **Technical Specs**: Add new files to `specs/technical/`
+- **Infrastructure Changes**: Update files in `infra/` and reference in spaces mapping
+- **Database Changes**: Modify `database/` files and update architectural documentation
+
+### Maintaining the Architecture Space
+
+When making architectural changes:
+
+1. **Update specifications** in the relevant technical spec files
+2. **Update the spaces mapping** in `.copilot/spaces-mapping.yaml` if adding new files
+3. **Run context updates** with `npm run update-context`
+4. **Document architectural decisions** in the appropriate specification files
+
+The spaces mapping automatically tracks dependencies and relationships between architectural components, ensuring Copilot has comprehensive context for architecture-related development.
+
 ## 🔄 Development Workflow Best Practices
 
 ### Spec-First Development
@@ -202,6 +244,7 @@ The TODO system automatically discovers your project structure and provides acti
 
 - **`context-for-copilot.js`**: Keep open for maximum Copilot context
 - **`docs/copilot-quick-reference.md`**: Reference for data patterns
+- **`.copilot/spaces-mapping.yaml`**: Architecture space and file relationships
 - **Relevant spec files**: The features you're currently implementing
 
 ### When to Update Context
@@ -210,6 +253,7 @@ The TODO system automatically discovers your project structure and provides acti
 - Before starting new feature development  
 - When onboarding new team members
 - As part of your CI/CD pipeline
+- After updating the spaces mapping configuration
 
 ## Sample Prompt
 
