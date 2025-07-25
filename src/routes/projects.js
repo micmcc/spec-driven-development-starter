@@ -18,4 +18,9 @@ router.put('/:id', authenticateToken, projectController.updateProject);
 // Delete a project by ID
 router.delete('/:id', authenticateToken, projectController.deleteProject);
 
+// Collaborator management
+router.post('/:id/collaborators', authenticateToken, projectController.addCollaborator);
+router.delete('/:id/collaborators/:collaboratorId', authenticateToken, projectController.removeCollaborator);
+router.put('/:id/collaborators/:collaboratorId', authenticateToken, projectController.updateCollaboratorRole);
+
 module.exports = router;

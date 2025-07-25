@@ -348,3 +348,240 @@ exports.deleteProject = async (req, res) => {
     });
   }
 };
+
+// Add collaborator to project
+exports.addCollaborator = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { email, role } = req.body;
+    const userId = req.user.id;
+
+    // Validate role
+    if (!['viewer', 'contributor', 'admin'].includes(role)) {
+      return res.status(400).json({
+        error: 'Invalid role. Must be viewer, contributor, or admin',
+        code: 'VALIDATION_ERROR'
+      });
+    }
+
+    // Check if user has admin/owner permissions
+    const permissionCheck = await db.query(
+      `SELECT c.role FROM collaborations c WHERE c.project_id = $1 AND c.user_id = $2`,
+      [id, userId]
+    );
+
+    if (permissionCheck.rows.length === 0) {
+      return res.status(404).json({
+        error: 'Project not found',
+        code: 'PROJECT_NOT_FOUND'
+      });
+    }
+
+    const userRole = permissionCheck.rows[0].role;
+    if (!['admin', 'owner'].includes(userRole)) {
+      return res.status(403).json({
+        error: 'Insufficient permissions to add collaborators',
+        code: 'INSUFFICIENT_PERMISSIONS'
+      });
+    }
+
+    // Find user by email
+    const userResult = await db.query(
+      `SELECT id, email, first_name, last_name FROM app_users WHERE email = $1`,
+      [email]
+    );
+
+    if (userResult.rows.length === 0) {
+      return res.status(404).json({
+        error: 'User not found',
+        code: 'USER_NOT_FOUND'
+      });
+    }
+
+    const targetUser = userResult.rows[0];
+
+    // Check if user is already a collaborator
+    const existingCollaboration = await db.query(
+      `SELECT id FROM collaborations WHERE project_id = $1 AND user_id = $2`,
+      [id, targetUser.id]
+    );
+
+    if (existingCollaboration.rows.length > 0) {
+      return res.status(409).json({
+        error: 'User is already a collaborator on this project',
+        code: 'COLLABORATION_EXISTS'
+      });
+    }
+
+    // Add collaboration
+    await db.query(
+      `INSERT INTO collaborations (id, project_id, user_id, role, created_at, updated_at)
+       VALUES ($1, $2, $3, $4, NOW(), NOW())`,
+      [uuidv4(), id, targetUser.id, role]
+    );
+
+    res.status(201).json({
+      message: 'Collaborator added successfully',
+      collaborator: {
+        id: targetUser.id,
+        email: targetUser.email,
+        first_name: targetUser.first_name,
+        last_name: targetUser.last_name,
+        role: role,
+        joined_at: new Date()
+      }
+    });
+
+  } catch (err) {
+    console.error('Add collaborator failed:', err);
+    res.status(500).json({
+      error: 'Failed to add collaborator',
+      code: 'INTERNAL_ERROR'
+    });
+  }
+};
+
+// Remove collaborator from project
+exports.removeCollaborator = async (req, res) => {
+  try {
+    const { id, collaboratorId } = req.params;
+    const userId = req.user.id;
+
+    // Check if user has admin/owner permissions
+    const permissionCheck = await db.query(
+      `SELECT c.role FROM collaborations c WHERE c.project_id = $1 AND c.user_id = $2`,
+      [id, userId]
+    );
+
+    if (permissionCheck.rows.length === 0) {
+      return res.status(404).json({
+        error: 'Project not found',
+        code: 'PROJECT_NOT_FOUND'
+      });
+    }
+
+    const userRole = permissionCheck.rows[0].role;
+    if (!['admin', 'owner'].includes(userRole)) {
+      return res.status(403).json({
+        error: 'Insufficient permissions to remove collaborators',
+        code: 'INSUFFICIENT_PERMISSIONS'
+      });
+    }
+
+    // Check if target collaboration exists
+    const collaborationCheck = await db.query(
+      `SELECT c.role FROM collaborations c WHERE c.project_id = $1 AND c.user_id = $2`,
+      [id, collaboratorId]
+    );
+
+    if (collaborationCheck.rows.length === 0) {
+      return res.status(404).json({
+        error: 'Collaborator not found',
+        code: 'COLLABORATOR_NOT_FOUND'
+      });
+    }
+
+    // Prevent removing the owner
+    if (collaborationCheck.rows[0].role === 'owner') {
+      return res.status(400).json({
+        error: 'Cannot remove project owner',
+        code: 'CANNOT_REMOVE_OWNER'
+      });
+    }
+
+    // Remove collaboration
+    await db.query(
+      `DELETE FROM collaborations WHERE project_id = $1 AND user_id = $2`,
+      [id, collaboratorId]
+    );
+
+    res.json({
+      message: 'Collaborator removed successfully'
+    });
+
+  } catch (err) {
+    console.error('Remove collaborator failed:', err);
+    res.status(500).json({
+      error: 'Failed to remove collaborator',
+      code: 'INTERNAL_ERROR'
+    });
+  }
+};
+
+// Update collaborator role
+exports.updateCollaboratorRole = async (req, res) => {
+  try {
+    const { id, collaboratorId } = req.params;
+    const { role } = req.body;
+    const userId = req.user.id;
+
+    // Validate role
+    if (!['viewer', 'contributor', 'admin'].includes(role)) {
+      return res.status(400).json({
+        error: 'Invalid role. Must be viewer, contributor, or admin',
+        code: 'VALIDATION_ERROR'
+      });
+    }
+
+    // Check if user has admin/owner permissions
+    const permissionCheck = await db.query(
+      `SELECT c.role FROM collaborations c WHERE c.project_id = $1 AND c.user_id = $2`,
+      [id, userId]
+    );
+
+    if (permissionCheck.rows.length === 0) {
+      return res.status(404).json({
+        error: 'Project not found',
+        code: 'PROJECT_NOT_FOUND'
+      });
+    }
+
+    const userRole = permissionCheck.rows[0].role;
+    if (!['admin', 'owner'].includes(userRole)) {
+      return res.status(403).json({
+        error: 'Insufficient permissions to update collaborator roles',
+        code: 'INSUFFICIENT_PERMISSIONS'
+      });
+    }
+
+    // Check if target collaboration exists
+    const collaborationCheck = await db.query(
+      `SELECT c.role FROM collaborations c WHERE c.project_id = $1 AND c.user_id = $2`,
+      [id, collaboratorId]
+    );
+
+    if (collaborationCheck.rows.length === 0) {
+      return res.status(404).json({
+        error: 'Collaborator not found',
+        code: 'COLLABORATOR_NOT_FOUND'
+      });
+    }
+
+    // Prevent changing owner role
+    if (collaborationCheck.rows[0].role === 'owner') {
+      return res.status(400).json({
+        error: 'Cannot change owner role',
+        code: 'CANNOT_CHANGE_OWNER_ROLE'
+      });
+    }
+
+    // Update collaboration role
+    await db.query(
+      `UPDATE collaborations SET role = $1, updated_at = NOW() 
+       WHERE project_id = $2 AND user_id = $3`,
+      [role, id, collaboratorId]
+    );
+
+    res.json({
+      message: 'Collaborator role updated successfully',
+      role: role
+    });
+
+  } catch (err) {
+    console.error('Update collaborator role failed:', err);
+    res.status(500).json({
+      error: 'Failed to update collaborator role',
+      code: 'INTERNAL_ERROR'
+    });
+  }
+};
