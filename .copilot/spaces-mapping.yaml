@@ -1,0 +1,360 @@
+# Copilot Spaces Mapping Configuration
+# This file provides a comprehensive mapping of all Copilot Spaces (functional areas)
+# to their related files, specifications, tests, and resources.
+# 
+# Purpose:
+# - Help agents and humans quickly find relevant files for each functional area
+# - Provide context about relationships between specifications, tests, and source code
+# - Guide development and maintenance activities across the codebase
+#
+# How to use:
+# - Each space represents a major functional area or feature domain
+# - Update this file when adding new features, tests, or documentation
+# - Use the 'issues_prs' section to track related GitHub issues and pull requests
+# - Keep file paths relative to the repository root
+#
+# Last Updated: $(date)
+
+---
+# Global metadata and configuration
+metadata:
+  version: "1.0"
+  description: "Copilot Spaces mapping for spec-driven-development-starter repository"
+  repository: "micmcc/spec-driven-development-starter"
+  last_updated: "2024-07-25"
+  maintainer: "Development Team"
+
+# =============================================================================
+# SPACES CONFIGURATION
+# =============================================================================
+# Each space represents a cohesive functional area with related files
+
+spaces:
+  
+  # ---------------------------------------------------------------------------
+  # USER MANAGEMENT SPACE
+  # ---------------------------------------------------------------------------
+  user_management:
+    name: "User Management"
+    description: "User account management, profiles, settings, and account lifecycle"
+    priority: "high"
+    status: "active"
+    
+    # Core specification files for this space
+    specification_files:
+      - path: "specs/features/user-management.md"
+        type: "feature_spec"
+        description: "Main user management feature specification"
+      - path: "specs/features/user-registration.md"
+        type: "feature_spec"
+        description: "User registration and account creation flow"
+      - path: "specs/features/login-flow.md"
+        type: "feature_spec"
+        description: "User authentication and login processes"
+      - path: "specs/technical/authentication.md"
+        type: "technical_spec"
+        description: "Technical authentication implementation details"
+    
+    # Test specifications and test files
+    test_files:
+      - path: "specs/tests/auth-test-cases.md"
+        type: "test_spec"
+        description: "Authentication test case specifications"
+      - path: "tests/authController.test.js"
+        type: "unit_test"
+        description: "Authentication controller unit tests"
+      - path: "tests/authMiddleware.test.js"
+        type: "unit_test"
+        description: "Authentication middleware unit tests"
+    
+    # Planning and design documents
+    planning_files:
+      - path: "planning/TODO.feature.md"
+        type: "planning"
+        description: "Feature development todos and planning"
+      - path: "planning/TODO.specs.md"
+        type: "planning"
+        description: "Specification writing and review todos"
+    
+    # Reference and context files
+    reference_files:
+      - path: "docs/copilot-quick-reference.md"
+        type: "documentation"
+        description: "Quick reference for Copilot integration"
+      - path: "README.md"
+        type: "documentation"
+        description: "Main repository documentation"
+      - path: ".github/instructions/copilot-instructions.md"
+        type: "documentation"
+        description: "Copilot-specific development instructions"
+    
+    # Source code files (if implemented)
+    source_files:
+      - path: "src/controllers/authController.js"
+        type: "controller"
+        description: "Authentication controller implementation"
+      - path: "src/middleware/authMiddleware.js"
+        type: "middleware"
+        description: "Authentication middleware implementation"
+      - path: "src/models/db.js"
+        type: "model"
+        description: "Database connection and shared model utilities"
+      - path: "src/routes/auth.js"
+        type: "route"
+        description: "Authentication API routes"
+    
+    # Related GitHub issues and PRs (update as needed)
+    issues_prs:
+      examples:
+        - type: "issue"
+          number: "TBD"
+          title: "Implement password reset functionality"
+        - type: "pr"
+          number: "TBD"
+          title: "Add user profile management endpoints"
+    
+    # Dependencies on other spaces
+    dependencies:
+      - "test_coverage_cicd"  # Relies on testing infrastructure
+    
+  # ---------------------------------------------------------------------------
+  # COLLABORATIVE SPEC EDITING SPACE
+  # ---------------------------------------------------------------------------
+  collaborative_spec_editing:
+    name: "Collaborative Spec Editing"
+    description: "Real-time collaborative editing of specifications with version control"
+    priority: "medium"
+    status: "active"
+    
+    # Core specification files for this space
+    specification_files:
+      - path: "specs/features/collaborative_editing.md"
+        type: "feature_spec"
+        description: "Main collaborative editing feature specification"
+      - path: "specs/features/collaboration-management.md"
+        type: "feature_spec"
+        description: "Collaboration management and permissions"
+      - path: "specs/technical/real-time-collaboration.md"
+        type: "technical_spec"
+        description: "Technical implementation for real-time collaboration"
+    
+    # Test specifications and test files
+    test_files:
+      - path: "specs/tests/project-test-cases.md"
+        type: "test_spec"
+        description: "Project and collaboration test specifications"
+      - path: "tests/projectController.test.js"
+        type: "unit_test"
+        description: "Project controller unit tests"
+    
+    # Planning and design documents
+    planning_files:
+      - path: "planning/TODO.feature.md"
+        type: "planning"
+        description: "Feature development todos including collaboration features"
+      - path: "planning/TODO.techdebt.md"
+        type: "planning"
+        description: "Technical debt items related to collaboration"
+    
+    # Reference and context files
+    reference_files:
+      - path: "specs/product-intent.md"
+        type: "documentation"
+        description: "Product vision and intent for collaborative features"
+      - path: "specs/product-overview/use-cases.md"
+        type: "documentation"
+        description: "Use cases including collaborative scenarios"
+      - path: "specs/templates/"
+        type: "templates"
+        description: "Specification templates directory"
+    
+    # Source code files (if implemented)
+    source_files:
+      - path: "src/controllers/projectController.js"
+        type: "controller"
+        description: "Project management controller"
+      - path: "frontend/"
+        type: "frontend"
+        description: "Frontend components for collaborative editing"
+    
+    # Related GitHub issues and PRs
+    issues_prs:
+      examples:
+        - type: "issue"
+          number: "TBD"
+          title: "Real-time editing conflict resolution"
+        - type: "pr"
+          number: "TBD"
+          title: "WebSocket integration for live collaboration"
+    
+    # Dependencies on other spaces
+    dependencies:
+      - "user_management"  # Requires user authentication and permissions
+      - "test_coverage_cicd"  # Relies on testing infrastructure
+
+  # ---------------------------------------------------------------------------
+  # TEST COVERAGE & CI/CD SPACE
+  # ---------------------------------------------------------------------------
+  test_coverage_cicd:
+    name: "Test Coverage & CI/CD"
+    description: "Testing infrastructure, continuous integration, and deployment pipeline"
+    priority: "critical"
+    status: "active"
+    
+    # Core specification files for this space
+    specification_files:
+      - path: "specs/technical/error-handling.md"
+        type: "technical_spec"
+        description: "Error handling and testing strategies"
+      - path: "TESTING_SUMMARY.md"
+        type: "documentation"
+        description: "Comprehensive testing strategy and coverage summary"
+    
+    # Test specifications and test files
+    test_files:
+      - path: "specs/tests/"
+        type: "test_spec_directory"
+        description: "Directory containing all test specifications"
+      - path: "specs/tests/auth-test-cases.md"
+        type: "test_spec"
+        description: "Authentication test cases"
+      - path: "specs/tests/middleware-test-cases.md"
+        type: "test_spec"
+        description: "Middleware test cases"
+      - path: "specs/tests/project-test-cases.md"
+        type: "test_spec"
+        description: "Project management test cases"
+      - path: "tests/"
+        type: "test_directory"
+        description: "Main test implementation directory"
+      - path: "tests/authController.test.js"
+        type: "unit_test"
+        description: "Authentication controller tests"
+      - path: "tests/authMiddleware.test.js"
+        type: "unit_test"
+        description: "Authentication middleware tests"
+      - path: "tests/projectController.test.js"
+        type: "unit_test"
+        description: "Project controller tests"
+      - path: "tests/setup.js"
+        type: "test_config"
+        description: "Test environment setup and configuration"
+    
+    # Planning and design documents
+    planning_files:
+      - path: "planning/TODO.tests.md"
+        type: "planning"
+        description: "Test development and coverage planning"
+      - path: "planning/TODO.devops.md"
+        type: "planning"
+        description: "DevOps and CI/CD improvement planning"
+    
+    # CI/CD and configuration files
+    reference_files:
+      - path: ".github/workflows/update-context.yml"
+        type: "cicd"
+        description: "GitHub Actions workflow for context updates"
+      - path: ".github/ISSUE_TEMPLATE/"
+        type: "github_templates"
+        description: "GitHub issue templates directory"
+      - path: "jest.config.js"
+        type: "test_config"
+        description: "Jest testing framework configuration"
+      - path: "package.json"
+        type: "config"
+        description: "NPM package configuration with test scripts"
+      - path: "infra/docker-compose.yml"
+        type: "infrastructure"
+        description: "Docker infrastructure configuration"
+    
+    # Source code files related to testing infrastructure
+    source_files:
+      - path: "tools/"
+        type: "tools_directory"
+        description: "Development and automation tools"
+      - path: "tools/update-all-context.js"
+        type: "automation"
+        description: "Context update automation script"
+    
+    # Related GitHub issues and PRs
+    issues_prs:
+      examples:
+        - type: "issue"
+          number: "TBD"
+          title: "Increase test coverage to 90%"
+        - type: "pr"
+          number: "TBD"
+          title: "Add integration testing pipeline"
+    
+    # Dependencies on other spaces
+    dependencies: []  # This space supports other spaces, no dependencies
+
+# =============================================================================
+# CROSS-CUTTING CONCERNS
+# =============================================================================
+# Files and resources that span multiple spaces
+
+global_files:
+  core_documentation:
+    - path: "README.md"
+      description: "Main repository documentation and getting started guide"
+    - path: "TODO.md"
+      description: "Global todo list and development priorities"
+    - path: "context-for-copilot.js"
+      description: "Copilot context aggregation script"
+  
+  configuration:
+    - path: ".gitignore"
+      description: "Git ignore configuration"
+    - path: ".env.example"
+      description: "Environment variables template"
+    - path: "spec-driven.code-workspace"
+      description: "VSCode workspace configuration"
+  
+  infrastructure:
+    - path: "database/"
+      description: "Database setup and migration scripts"
+    - path: "infra/"
+      description: "Infrastructure and deployment configuration"
+
+# =============================================================================
+# MAINTENANCE GUIDELINES
+# =============================================================================
+maintenance:
+  update_triggers:
+    - "When adding new feature specifications"
+    - "When creating new test files or test specifications"
+    - "When adding new source code modules"
+    - "When creating or updating planning documents"
+    - "When opening related GitHub issues or PRs"
+  
+  review_schedule:
+    - "Weekly during active development"
+    - "Monthly during maintenance phases"
+    - "Before major releases"
+  
+  responsibilities:
+    - role: "Feature Developers"
+      tasks: ["Update space mappings when adding new features"]
+    - role: "QA Engineers"
+      tasks: ["Update test file mappings", "Ensure test coverage tracking"]
+    - role: "DevOps Engineers"
+      tasks: ["Update CI/CD related mappings", "Infrastructure file tracking"]
+    - role: "Tech Leads"
+      tasks: ["Review and approve mapping changes", "Ensure consistency"]
+
+# =============================================================================
+# USAGE EXAMPLES
+# =============================================================================
+usage_examples:
+  - scenario: "Finding all files related to user authentication"
+    action: "Check user_management space for comprehensive file list"
+  
+  - scenario: "Adding a new collaborative editing feature"
+    action: "Update collaborative_spec_editing space with new spec and test files"
+  
+  - scenario: "Setting up testing for a new feature"
+    action: "Reference test_coverage_cicd space for patterns and add to relevant feature space"
+  
+  - scenario: "Understanding cross-space dependencies"
+    action: "Check dependencies section in each space definition"
