@@ -300,9 +300,12 @@ spaces:
     
     # Core specification files for this space
     specification_files:
+      - path: "specs/technical/architecture.md"
+        type: "technical_spec"
+        description: "Comprehensive technical architecture specification and system design"
       - path: "specs/product-overview/architecture.md"
         type: "architecture_spec"
-        description: "Main system architecture and technology stack documentation"
+        description: "High-level system architecture and technology stack overview"
       - path: "specs/technical/authentication.md"
         type: "technical_spec"
         description: "Authentication architecture and implementation details"
@@ -312,6 +315,24 @@ spaces:
       - path: "specs/technical/real-time-collaboration.md"
         type: "technical_spec"
         description: "Real-time collaboration technical architecture"
+      - path: "specs/technical/adrs/"
+        type: "adr_directory"
+        description: "Architectural Decision Records (ADRs) directory"
+      - path: "specs/technical/adrs/README.md"
+        type: "adr_index"
+        description: "ADR index and process documentation"
+      - path: "specs/technical/adrs/ADR-001-technology-stack-selection.md"
+        type: "adr"
+        description: "Decision record for technology stack selection"
+      - path: "specs/technical/adrs/ADR-002-real-time-collaboration-approach.md"
+        type: "adr"
+        description: "Decision record for real-time collaboration implementation"
+      - path: "specs/technical/adrs/ADR-003-database-schema-design.md"
+        type: "adr"
+        description: "Decision record for database schema and design patterns"
+      - path: "specs/technical/adrs/ADR-004-authentication-strategy.md"
+        type: "adr"
+        description: "Decision record for authentication and authorization strategy"
     
     # Test specifications and test files
     test_files:
@@ -368,8 +389,8 @@ spaces:
     issues_prs:
       current:
         - type: "issue"
-          number: "18"
-          title: "Update Documentation and Usage Guide for Architecture Space"
+          number: "15"
+          title: "[Feature]: Review and Update Architecture Specifications"
       examples:
         - type: "issue"
           number: "TBD"
