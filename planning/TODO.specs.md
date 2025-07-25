@@ -10,9 +10,10 @@
 - [ ] **features/project-creation.md** (medium priority) - Very short content (< 200 characters)
 - [ ] **features/user-management.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **features/user-registration.md** (medium priority) - Contains placeholder text: "Draft"
-- [ ] **product-overview/architecture.md** (high priority) - Architecture missing technology stack information
 - [ ] **product-overview/data-model.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **product-overview/db-schema.md** (high priority) - Database schema missing table definitions
+- [ ] **technical/adrs/ADR-003-database-schema-design.md** (medium priority) - Contains placeholder text: "Draft"
+- [ ] **technical/adrs/README.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/authentication.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/error-handling.md** (medium priority) - Contains placeholder text: "Draft"
 - [ ] **technical/real-time-collaboration.md** (medium priority) - Contains placeholder text: "Draft"

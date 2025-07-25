@@ -20,7 +20,6 @@ This project uses a centralized planning system with area-specific TODO files to
 ### High Priority Items
 - [ ] Complete project-creation implementation ([Features](planning/TODO.feature.md))
 - [ ] Create missing security specification ([Specs](planning/TODO.specs.md))
-- [ ] Complete architecture specification ([Specs](planning/TODO.specs.md))
 - [ ] Complete db-schema specification ([Specs](planning/TODO.specs.md))
 
 ### Medium Priority Items
@@ -34,7 +33,7 @@ This project uses a centralized planning system with area-specific TODO files to
 | Area | Total Tasks | Completed | In Progress | Planned |
 |------|-------------|-----------|-------------|---------|
 | Features | ~70 | 0% | 10% | 90% |
-| Specifications | ~15 | 0% | 20% | 80% |
+| Specifications | ~16 | 0% | 20% | 80% |
 | Testing | ~15 | 0% | 5% | 95% |
 | Tech Debt | ~18 | 0% | 10% | 90% |
 | DevOps | ~30 | 0% | 5% | 95% |
