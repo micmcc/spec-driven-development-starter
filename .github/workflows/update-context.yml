@@ -7,10 +7,12 @@ on:
     paths:
       - 'specs/**'
       - 'tools/**'
+      - 'planning/**'
   pull_request:
     paths:
       - 'specs/**'
       - 'tools/**'
+      - 'planning/**'
   workflow_dispatch:
 
 jobs:
@@ -38,5 +40,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: update Copilot context files'
-          file_pattern: 'context-for-copilot.js docs/copilot-quick-reference.md .github/instructions/copilot-instructions.md TODO.md'
+          commit_message: 'chore: update Copilot context and planning files'
+          file_pattern: 'context-for-copilot.js docs/copilot-quick-reference.md .github/instructions/copilot-instructions.md TODO.md planning/'

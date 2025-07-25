@@ -11,11 +11,26 @@ This tool supports collaborative specification design for product teams, enablin
 - `specs/`: All feature descriptions, requirements, and design documents.
 - `specs/product-overview/`: Foundational product documents (intent, use cases, architecture, UX, data model)
 - `specs/tests/`: Test cases described in natural language.
+- `planning/`: Centralized TODO management with area-specific planning files.
 - `src/`: Application source code for managing specs, tests, and user flows.
 - `docs/`: Documentation including Copilot quick reference.
 - `.github/instructions/`: GitHub Copilot instructions for the project.
 - `tools/`: Automation scripts for maintaining spec-driven workflow.
 - `infra/`: Deployment and infrastructure scripts.
+
+## Planning & TODO Management
+
+This project uses a centralized planning system organized in the `/planning` folder:
+
+- **`TODO.md`**: Dashboard with high-level overview and status
+- **`planning/TODO.feature.md`**: Feature implementation tasks
+- **`planning/TODO.specs.md`**: Specification completeness tracking
+- **`planning/TODO.tests.md`**: Test coverage and CI/CD testing
+- **`planning/TODO.techdebt.md`**: Code quality and refactoring tasks
+- **`planning/TODO.devops.md`**: Infrastructure and deployment tasks
+- **`planning/TODO.context.md`**: Context management and Copilot integration
+
+Use `npm run update-todos` to automatically refresh all planning files from the current codebase and specifications.
 
 ## Getting Started
 
