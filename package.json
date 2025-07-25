@@ -11,6 +11,7 @@
     "update-quick-ref": "node tools/update-quick-reference.js",
     "update-copilot-instructions": "node tools/update-copilot-instructions.js",
     "update-todos": "node tools/update-todos.js",
+    "update-spaces-mapping": "node tools/update-spaces-mapping.js",
     "update-context": "node tools/update-all-context.js",
     "extract-specs": "node tools/spec-extractor.js",
     "db:migrate": "node database/migrate.js",
@@ -34,14 +35,15 @@
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.1",
     "helmet": "^8.1.0",
+    "js-yaml": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "supertest": "^7.0.0",
     "@types/jest": "^29.5.13",
-    "@types/supertest": "^6.0.2"
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

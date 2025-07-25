@@ -30,12 +30,17 @@ async function updateAllCopilotContext() {
     console.log('\n📝 Updating TODO list from specifications...');
     execSync(`node "${path.join(toolsDir, 'update-todos.js')}"`, { stdio: 'inherit' });
     
+    // Update spaces mapping
+    console.log('\n🗺️ Updating spaces mapping...');
+    execSync(`node "${path.join(toolsDir, 'update-spaces-mapping.js')}"`, { stdio: 'inherit' });
+    
     console.log('\n✨ All Copilot context files updated successfully!');
     console.log('📝 Files updated:');
     console.log('   - context-for-copilot.js');
     console.log('   - docs/copilot-quick-reference.md');
     console.log('   - .github/instructions/copilot-instructions.md');
     console.log('   - TODO.md');
+    console.log('   - .copilot/spaces-mapping.yaml');
     
   } catch (error) {
     console.error('❌ Error updating context files:', error.message);
