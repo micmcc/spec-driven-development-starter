@@ -2,9 +2,9 @@
   "name": "spec-driven-development-starter",
   "version": "1.0.0",
   "description": "Spec-Driven Development template with GitHub Copilot integration",
-  "main": "src/index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
