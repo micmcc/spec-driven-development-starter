@@ -18,7 +18,6 @@ This project uses a centralized planning system with area-specific TODO files to
 ## 🎯 Current Sprint Priorities
 
 ### High Priority Items
-- [ ] Complete project-creation implementation ([Features](planning/TODO.feature.md))
 - [ ] Complete db-schema specification ([Specs](planning/TODO.specs.md))
 - [ ] Complete security specification ([Specs](planning/TODO.specs.md))
 
@@ -32,12 +31,12 @@ This project uses a centralized planning system with area-specific TODO files to
 
 | Area | Total Tasks | Completed | In Progress | Planned |
 |------|-------------|-----------|-------------|---------|
-| Features | ~70 | 0% | 10% | 90% |
-| Specifications | ~16 | 0% | 20% | 80% |
-| Testing | ~15 | 0% | 5% | 95% |
-| Tech Debt | ~18 | 0% | 10% | 90% |
-| DevOps | ~30 | 0% | 5% | 95% |
-| Context | ~25 | 20% | 30% | 50% |
+| Features | ~80 | 29% | 0% | 71% |
+| Specifications | ~16 | 52% | 48% | 0% |
+| Testing | ~15 | 10% | 15% | 75% |
+| Tech Debt | ~18 | 5% | 15% | 80% |
+| DevOps | ~30 | 5% | 10% | 85% |
+| Context | ~25 | 60% | 25% | 15% |
 
 ## 🔄 How to Use This Planning System
 

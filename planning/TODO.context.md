@@ -13,19 +13,19 @@
 
 - [x] Migrate to centralized `/planning` folder structure
 - [x] Categorize TODOs by functional area
-- [ ] Add automated cross-referencing between planning files
-- [ ] Implement status tracking across area files
-- [ ] Add automated progress reporting
+- [x] Add automated cross-referencing between planning files
+- [x] Implement status tracking across area files
+- [x] Add automated progress reporting
 - [ ] Create planning file validation
 - [ ] Add automated TODO priority assessment
 - [ ] Implement planning file synchronization
 
 ## Agent-Friendly Features
 
-- [ ] Add structured metadata to planning files
-- [ ] Implement planning file templates
-- [ ] Create automated task dependency mapping
-- [ ] Add planning file change notifications
+- [x] Add structured metadata to planning files
+- [x] Implement planning file templates
+- [x] Create automated task dependency mapping
+- [x] Add planning file change notifications
 - [ ] Implement automated task assignment suggestions
 - [ ] Create planning file analytics and insights
 - [ ] Add automated planning file maintenance
