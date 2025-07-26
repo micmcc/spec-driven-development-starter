@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { projectService, Project } from '../services/projectService';
 import CreateProjectModal from './CreateProjectModal';
@@ -6,6 +7,7 @@ import './Dashboard.css';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -150,9 +152,19 @@ const Dashboard: React.FC = () => {
                       Updated {formatDate(project.updated_at)}
                     </span>
                     <div className="project-actions">
-                      <button className="action-button primary">Open</button>
+                      <button 
+                        className="action-button primary"
+                        onClick={() => navigate(`/projects/${project.id}`)}
+                      >
+                        Open
+                      </button>
                       {['owner', 'admin'].includes(project.user_role) && (
-                        <button className="action-button secondary">Settings</button>
+                        <button 
+                          className="action-button secondary"
+                          onClick={() => navigate(`/projects/${project.id}?tab=settings`)}
+                        >
+                          Settings
+                        </button>
                       )}
                     </div>
                   </div>

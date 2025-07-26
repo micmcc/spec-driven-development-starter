@@ -101,9 +101,13 @@ Current API endpoints:
 - `GET /:id`
 - `PUT /:id`
 - `DELETE /:id`
+- `POST /:id/collaborators`
+- `DELETE /:id/collaborators/:collaboratorId`
+- `PUT /:id/collaborators/:collaboratorId`
 
 ### Specs Routes
 - `POST /projects/:projectId/specs`
+- `POST /projects/:projectId/specs/upload`
 - `GET /projects/:projectId/specs`
 - `GET /specs/:id`
 - `PUT /specs/:id`
