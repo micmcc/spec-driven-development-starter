@@ -17,20 +17,27 @@ export interface Project {
 }
 
 export interface ProjectDetail extends Project {
-  collaborators: Array<{
-    id: string;
-    email: string;
-    first_name: string;
-    last_name: string;
-    role: string;
-    joined_at: string;
-  }>;
+  collaborators: Collaborator[];
 }
 
 export interface CreateProjectData {
   name: string;
   description: string;
   is_public: boolean;
+}
+
+export interface Collaborator {
+  id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  role: 'owner' | 'admin' | 'contributor' | 'viewer';
+  joined_at: string;
+}
+
+export interface AddCollaboratorData {
+  email: string;
+  role: 'admin' | 'contributor' | 'viewer';
 }
 
 class ProjectService {
@@ -95,6 +102,43 @@ class ProjectService {
     } catch (error: any) {
       console.error('Delete project failed:', error);
       throw new Error(error.response?.data?.error || 'Failed to delete project');
+    }
+  }
+
+  // Collaborator management methods
+  async addCollaborator(projectId: string, data: AddCollaboratorData): Promise<{ collaborator: Collaborator }> {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/projects/${projectId}/collaborators`, data, {
+        headers: this.getAuthHeaders()
+      });
+      return response.data;
+    } catch (error: any) {
+      console.error('Add collaborator failed:', error);
+      throw new Error(error.response?.data?.error || 'Failed to add collaborator');
+    }
+  }
+
+  async removeCollaborator(projectId: string, collaboratorId: string): Promise<void> {
+    try {
+      await axios.delete(`${API_BASE_URL}/projects/${projectId}/collaborators/${collaboratorId}`, {
+        headers: this.getAuthHeaders()
+      });
+    } catch (error: any) {
+      console.error('Remove collaborator failed:', error);
+      throw new Error(error.response?.data?.error || 'Failed to remove collaborator');
+    }
+  }
+
+  async updateCollaboratorRole(projectId: string, collaboratorId: string, role: Collaborator['role']): Promise<{ role: string }> {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/projects/${projectId}/collaborators/${collaboratorId}`, 
+        { role }, 
+        { headers: this.getAuthHeaders() }
+      );
+      return response.data;
+    } catch (error: any) {
+      console.error('Update collaborator role failed:', error);
+      throw new Error(error.response?.data?.error || 'Failed to update collaborator role');
     }
   }
 }

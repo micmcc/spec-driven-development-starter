@@ -1,0 +1,49 @@
+.create-spec-modal .modal-content {
+  max-width: 600px;
+}
+
+.field-hint {
+  color: #718096;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  resize: vertical;
+  min-height: 200px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea:disabled {
+  background-color: #f7fafc;
+  cursor: not-allowed;
+}
+
+.form-group textarea::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .create-spec-modal .modal-content {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+  }
+}

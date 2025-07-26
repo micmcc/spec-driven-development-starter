@@ -1,0 +1,135 @@
+.upload-spec-modal .modal-content {
+  max-width: 600px;
+}
+
+.file-drop-zone {
+  border: 2px dashed #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  background-color: #f8fafc;
+}
+
+.file-drop-zone:hover {
+  border-color: #cbd5e0;
+  background-color: #f1f5f9;
+}
+
+.file-drop-zone.drag-active {
+  border-color: #667eea;
+  background-color: #edf2f7;
+}
+
+.file-drop-zone.has-file {
+  border-color: #38a169;
+  background-color: #f0fff4;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-drop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.drop-icon {
+  font-size: 3rem;
+  color: #a0aec0;
+}
+
+.file-drop-content p {
+  margin: 0;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.file-drop-content small {
+  color: #718096;
+}
+
+.file-selected {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.file-icon {
+  font-size: 2rem;
+  color: #38a169;
+}
+
+.file-info {
+  flex: 1;
+}
+
+.file-name {
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 0.25rem;
+}
+
+.file-size {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.remove-file:hover {
+  background-color: #fed7d7;
+}
+
+.field-hint {
+  color: #718096;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .upload-spec-modal .modal-content {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+  
+  .file-drop-zone {
+    padding: 1.5rem;
+  }
+  
+  .file-selected {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .file-info {
+    text-align: center;
+  }
+}

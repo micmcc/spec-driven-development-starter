@@ -1,0 +1,225 @@
+.collaborator-management {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.collaborators-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.collaborators-header h3 {
+  margin: 0;
+  color: #1a202c;
+  font-size: 1.5rem;
+}
+
+.add-collaborator-button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.add-collaborator-button:hover:not(:disabled) {
+  background-color: #5a67d8;
+}
+
+.add-collaborator-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #fed7d7;
+  color: #742a2a;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message p {
+  margin: 0;
+}
+
+.close-error {
+  background: none;
+  border: none;
+  color: #742a2a;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collaborators-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.collaborator-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+
+.collaborator-item:hover {
+  border-color: #cbd5e0;
+}
+
+.collaborator-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collaborator-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.collaborator-details h4 {
+  margin: 0 0 0.25rem 0;
+  color: #1a202c;
+  font-size: 1.1rem;
+}
+
+.collaborator-details p {
+  margin: 0 0 0.25rem 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.joined-date {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.collaborator-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.role-select {
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: white;
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.role-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.role-owner {
+  background-color: #fed7b2;
+  color: #c05621;
+}
+
+.role-admin {
+  background-color: #bee3f8;
+  color: #2c5282;
+}
+
+.role-contributor {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.role-viewer {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.remove-button {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.remove-button:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.remove-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.no-collaborators {
+  text-align: center;
+  padding: 3rem 0;
+  color: #718096;
+}
+
+.no-collaborators p {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .collaborator-management {
+    padding: 1rem;
+  }
+  
+  .collaborators-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .collaborator-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .collaborator-actions {
+    justify-content: space-between;
+  }
+  
+  .role-select {
+    flex: 1;
+  }
+}
