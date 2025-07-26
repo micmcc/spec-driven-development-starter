@@ -2,7 +2,7 @@ metadata:
   version: '1.0'
   description: Copilot Spaces mapping for spec-driven-development-starter repository
   repository: micmcc/spec-driven-development-starter
-  last_updated: '2025-07-25'
+  last_updated: '2025-07-26'
   maintainer: Development Team
 spaces:
   user_management:
@@ -169,6 +169,9 @@ spaces:
       - path: specs/tools/update-todos.md
         type: other
         description: update todos file
+      - path: specs/product-overview/security.md
+        type: architecture_spec
+        description: security file
     test_files:
       - path: specs/tests/project-test-cases.md
         type: test_spec
@@ -176,6 +179,9 @@ spaces:
       - path: tests/projectController.test.js
         type: unit_test
         description: project controller unit tests
+      - path: tests/specController.test.js
+        type: unit_test
+        description: spec controller unit tests
     planning_files:
       - path: planning/TODO.feature.md
         type: planning
@@ -278,6 +284,12 @@ spaces:
       - path: tests/update-spaces-mapping.test.js
         type: unit_test
         description: update-spaces-mapping unit tests
+      - path: tests/collaboratorController.test.js
+        type: unit_test
+        description: collaborator controller unit tests
+      - path: tests/specController.test.js
+        type: unit_test
+        description: spec controller unit tests
     planning_files:
       - path: planning/TODO.tests.md
         type: planning
