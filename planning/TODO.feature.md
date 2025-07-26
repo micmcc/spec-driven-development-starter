@@ -2,29 +2,17 @@
 
 ## 🚧 In Progress Features
 
-- [x] **Specification Management Feature** - Frontend Implementation Complete
-  - [x] Create new specifications with content editor
-  - [x] Upload specification files (.md, .txt, .json, .yaml)
-  - [x] Organize specifications in folder hierarchies
-  - [x] View and edit specification content
-  - [x] Delete specifications (with permissions)
-  - [x] Track specification status (draft, review, approved, published)
-  - [x] Version tracking and author attribution
-  - [x] Drag-and-drop file upload support
-  - [x] Role-based access control for spec management
-
-- [x] **project-creation** (`specs/features/project-creation.md`) - Frontend Implementation Complete
+- [ ] **project-creation** (`specs/features/project-creation.md`)
 
 ## 📝 Planned Features
 
-- [x] **Collaboration Management Feature** (`specs/features/collaboration-management.md`) - Frontend Implementation Complete
-  - [x] View project collaborators and their roles
-  - [x] Add collaborators to projects by email (frontend UI)
-  - [x] Change collaborator permissions (admin/owner only) (frontend UI)
-  - [x] Remove collaborators from projects (admin/owner only) (frontend UI)
+- [ ] **Collaboration Management Feature** (`specs/features/collaboration-management.md`)
   - [ ] Invite users to projects by email address
   - [ ] Send invitation emails with project details
   - [ ] Accept/decline project invitations
+  - [ ] View project collaborators and their roles
+  - [ ] Change collaborator permissions (admin/owner only)
+  - [ ] Remove collaborators from projects (admin/owner only)
   - [ ] Leave projects as a collaborator
   - [ ] View pending invitations (sent and received)
   - [ ] Cancel pending invitations
@@ -33,16 +21,16 @@
   - [ ] Permission changes take effect immediately
   - [ ] Audit log of collaboration changes
   - [ ] Rate limiting on invitation sending
-  - [x] Test case 1: Project owner can invite users by email (frontend tests)
+  - [ ] Test case 1: Project owner can invite users by email
   - [ ] Test case 2: Invitation emails are sent with correct project details
   - [ ] Test case 3: Users can accept valid invitations
   - [ ] Test case 4: Users can decline invitations
   - [ ] Test case 5: Expired invitations cannot be accepted
-  - [x] Test case 6: Project admins can change collaborator roles (frontend tests)
-  - [x] Test case 7: Project admins can remove collaborators (frontend tests)
+  - [ ] Test case 6: Project admins can change collaborator roles
+  - [ ] Test case 7: Project admins can remove collaborators
   - [ ] Test case 8: Collaborators can leave projects
   - [ ] Test case 9: Permission changes are enforced immediately
-  - [x] Test case 10: Non-admins cannot manage collaborators (frontend permission checks)
+  - [ ] Test case 10: Non-admins cannot manage collaborators
   - [ ] Test case 11: Rate limiting prevents invitation spam
   - [ ] Test case 12: Invitation tokens are secure and unique
 - [ ] **Feature: Collaborative Spec Editing** (`specs/features/collaborative_editing.md`)
@@ -95,6 +83,6 @@
   - [ ] Test case 7: Unverified users cannot login
 
 ---
-*Last updated: 2025-07-25*
+*Last updated: 2025-07-26*
 *This file is automatically updated by the planning automation system.*
 *Cross-references: See [TODO.tests.md](TODO.tests.md) for related test implementations.*
