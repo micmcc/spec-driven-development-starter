@@ -1,7 +1,7 @@
 site_name: Spec-Driven Development Portal
 site_description: Product specs, context, tests, and dashboards
 repo_url: https://github.com/micmcc/spec-driven-development-starter
-edit_uri: edit/main/          # <- ensure this uses 'main' (not 'master' and no '/docs/')
+edit_uri: edit/main/
 theme:
   name: material
   features:
@@ -11,7 +11,7 @@ theme:
     - search.highlight
     - search.share
     - navigation.indexes
-    - content.action.edit 
+    - content.action.edit
 plugins:
   - search
 markdown_extensions:
@@ -54,6 +54,7 @@ nav:
               - 'ADR-002: Real-time Collaboration Approach': specs/technical/adrs/ADR-002-real-time-collaboration-approach.md
               - 'ADR-003: Database Schema Design': specs/technical/adrs/ADR-003-database-schema-design.md
               - 'ADR-004: Authentication Strategy': specs/technical/adrs/ADR-004-authentication-strategy.md
+              - ADR Template: specs/technical/adrs/ADR-template.md
               - Architectural Decision Records (ADRs): specs/technical/adrs/README.md
       - Templates:
           - Feature Specification Template: specs/templates/feature-template.md
