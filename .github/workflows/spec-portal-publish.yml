@@ -29,7 +29,7 @@ jobs:
         run: |
           npm init -y >/dev/null 2>&1 || true
           npm install --save-dev js-yaml gray-matter
-          node tools/sync-doc-sources.js
+          node tools/copy-specs-to-docs.js
           node tools/update-mkdocs-nav.js --write
           node tools/generate-spec-dashboard.js || true
 
