@@ -11,14 +11,14 @@ node tools/validate-specs.js && node tools/generate-spec-dashboard.js
 ### By Type
 | Type | Count |
 |---|---:|
-| doc | 2 |
+| doc | 3 |
 | feature | 32 |
 | planning | 7 |
 
 ### By Status
 | Status | Count |
 |---|---:|
-| draft | 34 |
+| draft | 35 |
 | open | 7 |
 
 ### By Domain
@@ -26,13 +26,14 @@ node tools/validate-specs.js && node tools/generate-spec-dashboard.js
 |---|---:|
 | features | 6 |
 | general | 19 |
-| technical | 9 |
+| technical | 10 |
 | templates | 1 |
 | tools | 6 |
 
 ### By Owner
 | Owner | Count |
 |---|---:|
+| michael.mccullough | 1 |
 | unassigned | 41 |
 
 ## Gap Analysis
