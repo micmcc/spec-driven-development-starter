@@ -1,3 +1,16 @@
+---
+id: FEAT-df2ffef
+title: User Registration Feature
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # User Registration Feature
 
 ## Metadata

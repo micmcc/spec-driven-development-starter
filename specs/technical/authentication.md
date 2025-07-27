@@ -1,3 +1,16 @@
+---
+id: FEAT-f341de3
+title: Authentication Technical Specification
+type: feature
+status: draft
+domain: technical
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Authentication Technical Specification
 
 ## Metadata

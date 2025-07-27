@@ -1,3 +1,16 @@
+---
+id: FEAT-6f1ec11
+title: Specification Context Extractor
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Specification Context Extractor
 
 ## Metadata

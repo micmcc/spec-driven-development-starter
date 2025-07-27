@@ -1,3 +1,16 @@
+---
+id: FEAT-8d7c52c
+title: Core Use Cases
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Core Use Cases
 
 ## 1. Create and Manage Specifications

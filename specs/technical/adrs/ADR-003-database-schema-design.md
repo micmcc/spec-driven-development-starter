@@ -1,3 +1,16 @@
+---
+id: FEAT-871e5df
+title: 'ADR-003: Database Schema Design'
+type: feature
+status: draft
+domain: technical
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # ADR-003: Database Schema Design
 
 ## Status

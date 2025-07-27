@@ -1,3 +1,16 @@
+---
+id: PLAN-e962d61
+title: Infrastructure & DevOps TODOs
+type: planning
+status: open
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Infrastructure & DevOps TODOs
 
 ## CI/CD Pipeline

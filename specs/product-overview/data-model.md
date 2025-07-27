@@ -1,3 +1,16 @@
+---
+id: FEAT-c2babc7
+title: Data Model (Initial Draft)
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Data Model (Initial Draft)
 
 ## User

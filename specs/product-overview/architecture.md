@@ -1,3 +1,16 @@
+---
+id: FEAT-7cf1110
+title: Architecture & Technologies Overview
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Architecture & Technologies Overview
 
 This document provides a high-level overview of the system architecture and technology choices for the Spec-Driven Development Starter application. For detailed technical specifications, see [Technical Architecture](../technical/architecture.md).

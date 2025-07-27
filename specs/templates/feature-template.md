@@ -1,3 +1,16 @@
+---
+id: FEAT-3abbd9b
+title: Feature Specification Template
+type: feature
+status: draft
+domain: templates
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Feature Specification Template
 
 ## Metadata

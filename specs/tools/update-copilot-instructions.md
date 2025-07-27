@@ -1,3 +1,16 @@
+---
+id: FEAT-bf489e4
+title: Copilot Instructions Generator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Copilot Instructions Generator
 
 ## Metadata

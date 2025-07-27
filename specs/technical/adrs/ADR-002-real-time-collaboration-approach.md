@@ -1,3 +1,16 @@
+---
+id: FEAT-0a8cc4d
+title: 'ADR-002: Real-time Collaboration Approach'
+type: feature
+status: draft
+domain: technical
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # ADR-002: Real-time Collaboration Approach
 
 ## Status

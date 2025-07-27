@@ -1,0 +1,83 @@
+site_name: Spec-Driven Development Portal
+site_description: Product specs, context, tests, and dashboards
+repo_url: https://github.com/micmcc/spec-driven-development-starter
+edit_uri: edit/main/          # <- ensure this uses 'main' (not 'master' and no '/docs/')
+theme:
+  name: material
+  features:
+    - navigation.top
+    - navigation.sections
+    - content.code.copy
+    - search.highlight
+    - search.share
+    - navigation.indexes
+    - content.action.edit 
+plugins:
+  - search
+markdown_extensions:
+  - meta
+  - admonition
+  - footnotes
+  - attr_list
+  - def_list
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Dashboard: spec-dashboard.md
+  - Specs:
+      - Overview: specs/index.md
+      - Product Intent: specs/product-intent.md
+      - Features:
+          - Overview: specs/features/index.md
+          - Collaboration Management Feature: specs/features/collaboration-management.md
+          - 'Feature: Collaborative Spec Editing': specs/features/collaborative_editing.md
+          - 'Feature: Login Flow': specs/features/login-flow.md
+          - Project Creation: specs/features/project-creation.md
+          - User Management Feature: specs/features/user-management.md
+          - User Registration Feature: specs/features/user-registration.md
+      - Product Overview:
+          - API Routes: specs/product-overview/api-routes.md
+          - Architecture & Technologies Overview: specs/product-overview/architecture.md
+          - Data Model (Initial Draft): specs/product-overview/data-model.md
+          - Database Schema (PostgreSQL): specs/product-overview/db-schema.md
+          - Security Specification: specs/product-overview/security.md
+          - Core Use Cases: specs/product-overview/use-cases.md
+          - UX and Design Aesthetics: specs/product-overview/ux.md
+      - Technical:
+          - Technical Architecture Specification: specs/technical/architecture.md
+          - Authentication Technical Specification: specs/technical/authentication.md
+          - Error Handling Technical Specification: specs/technical/error-handling.md
+          - Real-Time Collaboration Technical Specification: specs/technical/real-time-collaboration.md
+          - Adrs:
+              - 'ADR-001: Technology Stack Selection': specs/technical/adrs/ADR-001-technology-stack-selection.md
+              - 'ADR-002: Real-time Collaboration Approach': specs/technical/adrs/ADR-002-real-time-collaboration-approach.md
+              - 'ADR-003: Database Schema Design': specs/technical/adrs/ADR-003-database-schema-design.md
+              - 'ADR-004: Authentication Strategy': specs/technical/adrs/ADR-004-authentication-strategy.md
+              - Architectural Decision Records (ADRs): specs/technical/adrs/README.md
+      - Templates:
+          - Feature Specification Template: specs/templates/feature-template.md
+      - Tests:
+          - 'Test Cases: Authentication': specs/tests/auth-test-cases.md
+          - 'Test Cases: Authentication Middleware': specs/tests/middleware-test-cases.md
+          - 'Test Cases: Project Management': specs/tests/project-test-cases.md
+      - Tools:
+          - Specification Context Extractor: specs/tools/spec-extractor.md
+          - Tools System Overview: specs/tools/tools-overview.md
+          - Context Update Orchestrator: specs/tools/update-all-context.md
+          - Copilot Instructions Generator: specs/tools/update-copilot-instructions.md
+          - Quick Reference Generator: specs/tools/update-quick-reference.md
+          - TODO and Task Generator: specs/tools/update-todos.md
+  - Planning:
+      - Context Management & Copilot Integration TODOs: planning/TODO.context.md
+      - Infrastructure & DevOps TODOs: planning/TODO.devops.md
+      - Feature Implementation TODOs: planning/TODO.feature.md
+      - Project TODO Dashboard: planning/TODO.md
+      - Specification Completeness TODOs: planning/TODO.specs.md
+      - Technical Debt & Code Quality TODOs: planning/TODO.techdebt.md
+      - Test Coverage & Testing TODOs: planning/TODO.tests.md
+  - Other:
+      - Project README: project-readme.md
+      - API: API.md
+      - Copilot Quick Reference: copilot-quick-reference.md
+      - Steel Thread: steelthread.md

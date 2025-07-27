@@ -1,3 +1,16 @@
+---
+id: FEAT-31db9e3
+title: 'Feature: Login Flow'
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Feature: Login Flow
 
 ## Objective

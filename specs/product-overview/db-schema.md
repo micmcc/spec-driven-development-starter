@@ -1,3 +1,16 @@
+---
+id: FEAT-4e5ae5a
+title: Database Schema (PostgreSQL)
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Database Schema (PostgreSQL)
 
 ## Table: users

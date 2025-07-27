@@ -1,3 +1,16 @@
+---
+id: FEAT-479a2d3
+title: 'Feature: Collaborative Spec Editing'
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Feature: Collaborative Spec Editing
 
 ## Objective

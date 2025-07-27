@@ -1,3 +1,16 @@
+---
+id: FEAT-b70fccc
+title: Context Update Orchestrator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Context Update Orchestrator
 
 ## Metadata

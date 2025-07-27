@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Spec Frontmatter",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(FEAT|TEST|CTX|PLAN|DOC)-[a-z0-9]{7}$",
+      "description": "Deterministic identifier by type + short hash"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "feature",
+        "test",
+        "context",
+        "planning",
+        "doc"
+      ]
+    },
+    "domain": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "draft",
+        "in-review",
+        "approved",
+        "implemented",
+        "verified",
+        "deprecated",
+        "archived",
+        "open"         
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(FEAT|TEST|CTX|PLAN|DOC)-[a-z0-9]{7}$"
+      }
+    },
+    "implements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "covers_tests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(TEST)-[a-z0-9]{7}$"
+      }
+    },
+    "code_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "type",
+    "status"
+  ],
+  "additionalProperties": true
+}

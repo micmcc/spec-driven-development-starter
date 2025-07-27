@@ -1,3 +1,16 @@
+---
+id: DOC-8ec9a00
+title: Spec Driven Product Design Tool
+type: doc
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Spec Driven Product Design Tool
 
 This project is a **specification-driven development tool** designed to help product teams collaboratively define, refine, and implement product requirements, use cases, and tests. It leverages GitHub Copilot to generate code based on detailed specifications, ensuring alignment between product intent and implementation.

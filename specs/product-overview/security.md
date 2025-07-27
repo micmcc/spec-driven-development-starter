@@ -1,3 +1,16 @@
+---
+id: FEAT-343734a
+title: Security Specification
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Security Specification
 
 ## Metadata

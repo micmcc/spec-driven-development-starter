@@ -1,3 +1,16 @@
+---
+id: FEAT-c1661c3
+title: Product Intent
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Product Intent
 
 **Spec Driven** is a collaborative specification and test design workspace for modern product teams. It provides a structured environment for capturing product intent, use cases, test cases, and architectural requirements—designed to integrate seamlessly with AI-assisted development tools such as GitHub Copilot.

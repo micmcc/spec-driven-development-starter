@@ -1,3 +1,16 @@
+---
+id: FEAT-84288f4
+title: Architectural Decision Records (ADRs)
+type: doc
+status: draft
+domain: technical
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Architectural Decision Records (ADRs)
 
 This directory contains Architectural Decision Records for the Spec-Driven Development Starter project. ADRs document important architectural decisions made during the development of the system.
@@ -67,7 +80,7 @@ Create an ADR when making decisions about:
 
 1. Use the next sequential number (ADR-005, ADR-006, etc.)
 2. Follow the naming convention: `ADR-XXX-descriptive-title.md`
-3. Use the standard ADR template (see [ADR Template](ADR-template.md))
+3. Use the standard ADR template (see [ADR Template](./ADR-template.md))
 4. Update this index file with the new ADR
 
 ### Updating Existing ADRs

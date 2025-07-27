@@ -1,3 +1,16 @@
+---
+id: PLAN-ed5b53f
+title: Context Management & Copilot Integration TODOs
+type: planning
+status: open
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Context Management & Copilot Integration TODOs
 
 ## Context Management Automation

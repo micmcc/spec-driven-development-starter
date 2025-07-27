@@ -1,3 +1,16 @@
+---
+id: FEAT-4b4c941
+title: 'ADR-001: Technology Stack Selection'
+type: feature
+status: draft
+domain: technical
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # ADR-001: Technology Stack Selection
 
 ## Status
