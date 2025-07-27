@@ -1,16 +1,3 @@
----
-id: PLAN-ftr1234
-title: Feature TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Feature Implementation TODOs
 
 ## ✅ Completed Features

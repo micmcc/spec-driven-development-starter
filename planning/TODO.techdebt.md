@@ -1,16 +1,3 @@
----
-id: PLAN-tdebt3f
-title: Technical Debt TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Technical Debt & Code Quality TODOs
 
 ## Code Quality Improvements

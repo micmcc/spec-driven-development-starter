@@ -1,16 +1,3 @@
----
-id: PLAN-specs3f
-title: Specifications TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Specification Completeness TODOs
 
 
