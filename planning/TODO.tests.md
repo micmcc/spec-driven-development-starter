@@ -1,16 +1,3 @@
----
-id: PLAN-a330d39
-title: Test Coverage & Testing TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Test Coverage & Testing TODOs
 
 ## Test Implementation Status
@@ -40,6 +27,6 @@ code_refs: []
 - [ ] Add browser/E2E testing pipeline
 
 ---
-*Last updated: 2025-07-26*
+*Last updated: 2025-07-27*
 *This file is automatically updated by the planning automation system.*
 *Cross-references: See [TODO.devops.md](TODO.devops.md) for CI/CD infrastructure and [TODO.feature.md](TODO.feature.md) for feature test cases.*

@@ -1,16 +1,3 @@
----
-id: PLAN-c8a2fd8
-title: Feature Implementation TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Feature Implementation TODOs
 
 ## ✅ Completed Features
@@ -111,6 +98,6 @@ code_refs: []
   - [ ] Test case 7: Unverified users cannot login
 
 ---
-*Last updated: 2025-07-26*
+*Last updated: 2025-07-27*
 *This file is automatically updated by the planning automation system.*
 *Cross-references: See [TODO.tests.md](TODO.tests.md) for related test implementations.*

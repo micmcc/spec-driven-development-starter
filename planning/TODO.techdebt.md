@@ -1,16 +1,3 @@
----
-id: PLAN-584169f
-title: Technical Debt & Code Quality TODOs
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Technical Debt & Code Quality TODOs
 
 ## Code Quality Improvements
@@ -51,6 +38,6 @@ code_refs: []
 - No technical TODOs found in codebase
 
 ---
-*Last updated: 2025-07-26*
+*Last updated: 2025-07-27*
 *This file is automatically updated by the planning automation system.*
 *Cross-references: See [TODO.tests.md](TODO.tests.md) for testing improvements and [TODO.devops.md](TODO.devops.md) for deployment security.*

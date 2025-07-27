@@ -1,16 +1,3 @@
----
-id: PLAN-b5b096f
-title: Project TODO Dashboard
-type: planning
-status: open
-domain: general
-owner: unassigned
-last_reviewed: '2025-07-27'
-depends_on: []
-implements: []
-covers_tests: []
-code_refs: []
----
 # Project TODO Dashboard
 
 ## 📊 Planning Overview
@@ -31,8 +18,11 @@ This project uses a centralized planning system with area-specific TODO files to
 ## 🎯 Current Sprint Priorities
 
 ### High Priority Items
+- [ ] Complete api-routes specification ([Specs](planning/TODO.specs.md))
+- [ ] Complete architecture specification ([Specs](planning/TODO.specs.md))
 - [ ] Complete db-schema specification ([Specs](planning/TODO.specs.md))
 - [ ] Complete security specification ([Specs](planning/TODO.specs.md))
+- [ ] Complete architecture specification ([Specs](planning/TODO.specs.md))
 
 ### Medium Priority Items
 - [ ] Enhance API error handling ([Tech Debt](planning/TODO.techdebt.md))
@@ -45,7 +35,7 @@ This project uses a centralized planning system with area-specific TODO files to
 | Area | Total Tasks | Completed | In Progress | Planned |
 |------|-------------|-----------|-------------|---------|
 | Features | ~80 | 29% | 0% | 71% |
-| Specifications | ~16 | 52% | 48% | 0% |
+| Specifications | ~35 | 0% | 103% | 0% |
 | Testing | ~15 | 10% | 15% | 75% |
 | Tech Debt | ~18 | 5% | 15% | 80% |
 | DevOps | ~30 | 5% | 10% | 85% |
@@ -79,6 +69,6 @@ This project uses a centralized planning system with area-specific TODO files to
 
 ---
 
-*Last updated: 2025-07-26*  
+*Last updated: 2025-07-27*  
 *Run `npm run update-todos` to refresh all planning files from current specifications*  
 *Planning system automatically maintains cross-references and task organization*

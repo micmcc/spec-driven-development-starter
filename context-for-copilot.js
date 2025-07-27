@@ -1,9 +1,22 @@
 
 // SPECIFICATION CONTEXT FOR GITHUB COPILOT
-// Generated: 2025-07-26T01:53:16.327Z
+// Generated: 2025-07-27T22:19:35.985Z
 
 /*
 PRODUCT INTENT:
+---
+id: FEAT-c1661c3
+title: Product Intent
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Product Intent
 
 **Spec Driven** is a collaborative specification and test design workspace for modern product teams. It provides a structured environment for capturing product intent, use cases, test cases, and architectural requirements—designed to integrate seamlessly with AI-assisted development tools such as GitHub Copilot.
@@ -28,6 +41,19 @@ Spec Driven aims to bridge the gap between ideation and implementation. It empow
 
 
 ARCHITECTURE:
+---
+id: FEAT-7cf1110
+title: Architecture & Technologies Overview
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Architecture & Technologies Overview
 
 This document provides a high-level overview of the system architecture and technology choices for the Spec-Driven Development Starter application. For detailed technical specifications, see [Technical Architecture](../technical/architecture.md).
@@ -220,6 +246,19 @@ For detailed architectural decisions and their rationale, see:
 FEATURES:
 
 --- COLLABORATION-MANAGEMENT ---
+---
+id: FEAT-e84cd12
+title: Collaboration Management Feature
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Collaboration Management Feature
 
 ## Metadata
@@ -530,6 +569,19 @@ ALTER TABLE collaborations ADD COLUMN joined_at TIMESTAMP DEFAULT now();
 
 
 --- COLLABORATIVE_EDITING ---
+---
+id: FEAT-479a2d3
+title: 'Feature: Collaborative Spec Editing'
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Feature: Collaborative Spec Editing
 
 ## Objective
@@ -580,6 +632,19 @@ Currently, all specs are edited individually. This feature introduces shared acc
 
 
 --- LOGIN-FLOW ---
+---
+id: FEAT-31db9e3
+title: 'Feature: Login Flow'
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Feature: Login Flow
 
 ## Objective
@@ -609,10 +674,37 @@ Allow users to securely log in and access their personalized workspace of projec
 
 
 --- PROJECT-CREATION ---
+---
+id: FEAT-94c0fe6
+title: project creation
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
+
 
 
 
 --- USER-MANAGEMENT ---
+---
+id: FEAT-ac55a96
+title: User Management Feature
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # User Management Feature
 
 ## Metadata
@@ -866,6 +958,19 @@ ALTER TABLE users ADD COLUMN deletion_reason TEXT NULL;
 
 
 --- USER-REGISTRATION ---
+---
+id: FEAT-df2ffef
+title: User Registration Feature
+type: feature
+status: draft
+domain: features
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # User Registration Feature
 
 ## Metadata
@@ -1001,6 +1106,19 @@ GET /api/auth/verify-email?token=verification-token
 TESTS:
 
 --- AUTH-TEST-CASES ---
+---
+id: FEAT-59141b0
+title: 'Test Cases: Authentication'
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Test Cases: Authentication
 
 ## User Registration
@@ -1034,6 +1152,19 @@ TESTS:
 
 
 --- MIDDLEWARE-TEST-CASES ---
+---
+id: FEAT-c8ecc04
+title: 'Test Cases: Authentication Middleware'
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Test Cases: Authentication Middleware
 
 ## Token Authentication
@@ -1065,7 +1196,21 @@ TESTS:
 4. Database errors should be handled gracefully
 
 
+
 --- PROJECT-TEST-CASES ---
+---
+id: FEAT-912f4e6
+title: 'Test Cases: Project Management'
+type: feature
+status: draft
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Test Cases: Project Management
 
 ## Project Creation
@@ -1104,9 +1249,23 @@ TESTS:
 3. Confirmation should be required for project deletion
 
 
+
 TOOLS:
 
 --- SPEC-EXTRACTOR ---
+---
+id: FEAT-6f1ec11
+title: Specification Context Extractor
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Specification Context Extractor
 
 ## Metadata
@@ -1335,7 +1494,21 @@ extract-context [options]
 - [ ] Integration with project health monitoring
 
 
+
 --- TOOLS-OVERVIEW ---
+---
+id: FEAT-7b327aa
+title: Tools System Overview
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Tools System Overview
 
 ## Metadata
@@ -1457,7 +1630,21 @@ All tools should provide:
 - Feedback loops for improving context quality
 
 
+
 --- UPDATE-ALL-CONTEXT ---
+---
+id: FEAT-b70fccc
+title: Context Update Orchestrator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Context Update Orchestrator
 
 ## Metadata
@@ -1713,7 +1900,21 @@ Each tool must provide:
 - [ ] Integration with project health dashboards
 
 
+
 --- UPDATE-COPILOT-INSTRUCTIONS ---
+---
+id: FEAT-bf489e4
+title: Copilot Instructions Generator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Copilot Instructions Generator
 
 ## Metadata
@@ -2011,7 +2212,21 @@ update-copilot-instructions [options]
 - [ ] Feedback loops for instruction quality improvement
 
 
+
 --- UPDATE-QUICK-REFERENCE ---
+---
+id: FEAT-9e910df
+title: Quick Reference Generator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # Quick Reference Generator
 
 ## Metadata
@@ -2296,7 +2511,21 @@ For each development pattern:
 - [ ] Accessibility compliance for generated documentation
 
 
+
 --- UPDATE-TODOS ---
+---
+id: FEAT-eef851b
+title: TODO and Task Generator
+type: feature
+status: draft
+domain: tools
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
 # TODO and Task Generator
 
 ## Metadata
@@ -2638,5 +2867,6 @@ For each module and feature:
 - [ ] Technical debt trend analysis over time
 - [ ] Development velocity and capacity planning support
 - [ ] Quality metrics and improvement tracking
+
 
 */
