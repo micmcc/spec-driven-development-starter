@@ -1,3 +1,17 @@
+---
+id: PLAN-todo53f
+title: Projects TODOs
+type: planning
+status: open
+domain: general
+owner: unassigned
+last_reviewed: '2025-07-27'
+depends_on: []
+implements: []
+covers_tests: []
+code_refs: []
+---
+
 # Project TODO Dashboard
 
 ## 📊 Planning Overview

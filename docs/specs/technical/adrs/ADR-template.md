@@ -5,7 +5,7 @@ type: doc
 status: draft
 owner: michael.mccullough
 domain: technical
-last_reviewed: 2025-07-27T00:00:00.000Z
+last_reviewed: '2025-07-27'
 edit_url: >-
   https://github.com/micmcc/spec-driven-development-starter/edit/main/specs/technical/adrs/ADR-template.md
 ---

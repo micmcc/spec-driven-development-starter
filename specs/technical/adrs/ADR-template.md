@@ -5,7 +5,7 @@ type: doc
 status: draft
 owner: "michael.mccullough"
 domain: technical
-last_reviewed: 2025-07-27
+last_reviewed: '2025-07-27'
 ---
 
 # ADR Template
